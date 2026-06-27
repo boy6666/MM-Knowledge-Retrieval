@@ -1,0 +1,1040 @@
+[
+  {
+    "doc_id": "CH001",
+    "big_chapter": "四、气缸头与气门",
+    "sub_title": "4.3 凸轮轴",
+    "operate_text": "拆卸凸轮轴\n检查凸轮轴\n安装凸轮轴",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "CH002",
+    "big_chapter": "四、气缸头与气门",
+    "sub_title": "4.6 气门间隙",
+    "operate_text": "测量气门间隙\n调整气门间隙",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "CH003",
+    "big_chapter": "四、气缸头与气门",
+    "sub_title": "4.7 气缸头",
+    "operate_text": "拆卸气缸头\n安装气缸头",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "CH004",
+    "big_chapter": "四、气缸头与气门",
+    "sub_title": "4.8 气门",
+    "operate_text": "拆卸气门\n安装气门\n五、气缸与活塞",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "CP001",
+    "big_chapter": "五、气缸与活塞",
+    "sub_title": "5.4 安装气缸与活塞",
+    "operate_text": "（1）安装全新的箱体缸体垫片\n（2）将活塞头部插入气缸裙部\n注意事项\n气缸与活塞组别\n活塞环开口位置与角度\n（3）安装活塞销\n（4）安装活塞销挡圈",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "CP002",
+    "big_chapter": "五、气缸与活塞",
+    "sub_title": "5.6 安装活塞环",
+    "operate_text": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "RC001",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.4 右曲轴箱盖与离合器",
+    "operate_text": "拆卸右盖\n安装右盖\n拆卸离合器\n安装离合器",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "RC002",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.5 机油泵",
+    "operate_text": "拆卸机油泵\n检查机油泵\n安装机油泵",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "RC003",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.6 初级驱动齿轮、正时主动链轮",
+    "operate_text": "拆卸初级驱动齿轮、正时主动链轮\n安装初级驱动齿轮、正时主动链轮",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "RC004",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.7 换挡星形凸轮",
+    "operate_text": "拆卸星形凸轮\n安装星形凸轮",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "RC005",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.8 水泵",
+    "operate_text": "拆卸水泵\n检查水泵\n安装水泵\n七、左曲轴箱盖、磁电机转子离合器",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 1
+  },
+  {
+    "doc_id": "LC001",
+    "big_chapter": "七、左曲轴箱盖、磁电机转子离合器",
+    "sub_title": "7.2 减速齿轮",
+    "operate_text": "拆卸减速齿轮\n安装减速齿轮",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P2_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第2页",
+        "text_correspond": "对应7.2 减速齿轮操作",
+        "retrieval_tag": [
+          "减速齿轮"
+        ]
+      }
+    ],
+    "source_page": 2
+  },
+  {
+    "doc_id": "LC002",
+    "big_chapter": "七、左曲轴箱盖、磁电机转子离合器",
+    "sub_title": "7.3 磁电机转子离合器分部件",
+    "operate_text": "拆卸磁电机转子离合器分部件\n检查磁电机转子离合器单向器\n安装磁电机转子离合器分部件",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P2_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第2页",
+        "text_correspond": "对应7.3 磁电机转子离合器分部件操作",
+        "retrieval_tag": [
+          "磁电机转子离合器分部件"
+        ]
+      }
+    ],
+    "source_page": 2
+  },
+  {
+    "doc_id": "LC003",
+    "big_chapter": "七、左曲轴箱盖、磁电机转子离合器",
+    "sub_title": "7.4 左曲轴箱盖",
+    "operate_text": "安装左曲轴箱盖\n八、传动装置",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P2_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第2页",
+        "text_correspond": "对应7.4 左曲轴箱盖操作",
+        "retrieval_tag": [
+          "左曲轴箱盖"
+        ]
+      }
+    ],
+    "source_page": 2
+  },
+  {
+    "doc_id": "T001",
+    "big_chapter": "八、传动装置",
+    "sub_title": "8.4 检查传动装置",
+    "operate_text": "（1）检查拨叉\n（2）检查拨叉轴\n（3）检查变速鼓\n（4）检查传动主轴与传动副轴\n（5）检查轴承",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P2_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第2页",
+        "text_correspond": "对应8.4 检查传动装置操作",
+        "retrieval_tag": [
+          "检查传动装置"
+        ]
+      }
+    ],
+    "source_page": 2
+  },
+  {
+    "doc_id": "CB001",
+    "big_chapter": "九、曲轴与平衡轴",
+    "sub_title": "9.3 检查曲轴与平衡轴",
+    "operate_text": "（1）检查轴承\n（2）检查曲轴与平衡轴",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P2_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第2页",
+        "text_correspond": "对应9.3 检查曲轴与平衡轴操作",
+        "retrieval_tag": [
+          "检查曲轴与平衡轴"
+        ]
+      }
+    ],
+    "source_page": 2
+  },
+  {
+    "doc_id": "S001",
+    "big_chapter": "一、火花塞",
+    "sub_title": "1.1 拆卸火花塞",
+    "operate_text": "1. 用尖嘴钳将高压帽拔出。  \n2. 用火花塞专用套筒将火花塞（1）拆下。  \n注意：逆时针转动火花塞将其拆下。",
+    "spec_data": [],
+    "risk_tips": [
+      "逆时针转动火花塞将其拆下。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P2_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第2页",
+        "text_correspond": "对应1.1 拆卸火花塞操作",
+        "retrieval_tag": [
+          "拆卸火花塞"
+        ]
+      }
+    ],
+    "source_page": 2
+  },
+  {
+    "doc_id": "S002",
+    "big_chapter": "一、火花塞",
+    "sub_title": "1.2 检查火花塞",
+    "operate_text": "1. 检查火花塞螺纹以及中心电极处，若有损坏或变形，则应更换火花塞。  \n2. 用塞尺测量火花塞间隙 a，超出范围须更换火花塞。  \n间隙标准值：0.7～",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P3_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第3页",
+        "text_correspond": "对应1.2 检查火花塞操作",
+        "retrieval_tag": [
+          "检查火花塞"
+        ]
+      }
+    ],
+    "source_page": 3
+  },
+  {
+    "doc_id": "S003",
+    "big_chapter": "一、火花塞",
+    "sub_title": "1.3 安装火花塞",
+    "operate_text": "1. 将火花塞放入气缸头，套上火花塞专用套筒，  \n顺时针转动 3 圈预紧，  \n然后再转动 1/4 圈，  \n或使用定扭扳手将其拧紧至 20 ± 2 N·m。  \n2. 用尖嘴钳将高压帽套进火花塞并用力往下压紧。",
+    "spec_data": [
+      {
+        "param": "拧紧扭矩",
+        "value": "20 ± 2 N·m"
+      }
+    ],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P3_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第3页",
+        "text_correspond": "对应1.3 安装火花塞操作",
+        "retrieval_tag": [
+          "安装火花塞"
+        ]
+      }
+    ],
+    "source_page": 3
+  },
+  {
+    "doc_id": "S004",
+    "big_chapter": "一、火花塞",
+    "sub_title": "1.4 测量压缩压力",
+    "operate_text": "1. 启动发动机，预热几分钟，然后熄火。  \n2. 拆卸火花塞。  \n注意：在拆卸火花塞之前要确保火花塞孔及其周围没有灰尘。\n3. 安装压力表。  \n4. 测量压缩压力：\n标准压缩压力范围：\n1300～1900 kPa（转速：1500 r/min）\n500～900 kPa（转速：540 r/min）\n测量步骤：\na. 将油门开到最大处，用起动电机带动发动机转动，直至压力表上的读数稳定下来。  \n警示：在启动发动机之前，将燃油喷射器拆卸下来。\n   结果分析：  \n若压缩压力高于最大值：\n检查气缸头、气门表面和活塞顶部是否有积碳。如有，清除积碳。  \n若压缩压力小于最小值：\n往火花塞孔倒一勺机油，并再次测量。  \n若压力比加机油前高：活塞环磨损或损坏 → 更换。  \n若压力等于加机油前：活塞、气门、气缸头垫片可能有缺陷 → 更换。\n5. 用火花塞专用工具（16 mm）安装火花塞。",
+    "spec_data": [
+      {
+        "param": "压力标准",
+        "value": "1300～1900 kPa"
+      },
+      {
+        "param": "压力标准",
+        "value": "500～900 kPa"
+      }
+    ],
+    "risk_tips": [
+      "在拆卸火花塞之前要确保火花塞孔及其周围没有灰尘。",
+      "在启动发动机之前，将燃油喷射器拆卸下来。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P3_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第3页",
+        "text_correspond": "对应1.4 测量压缩压力操作",
+        "retrieval_tag": [
+          "测量压缩压力"
+        ]
+      }
+    ],
+    "source_page": 3
+  },
+  {
+    "doc_id": "M001",
+    "big_chapter": "二、起动电机",
+    "sub_title": "2.1 起动电机装配部件清单",
+    "operate_text": "注：以上螺栓和螺母的拧紧力矩请严格按规范执行。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P4_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第4页",
+        "text_correspond": "对应2.1 起动电机装配部件清单操作",
+        "retrieval_tag": [
+          "起动电机装配部件清单"
+        ]
+      }
+    ],
+    "source_page": 4
+  },
+  {
+    "doc_id": "M002",
+    "big_chapter": "二、起动电机",
+    "sub_title": "2.2 拆卸起动电机",
+    "operate_text": "1. 拆卸涨紧器  \n拆下 M6×10 顶销螺栓 和 铜垫片。  \n拆下 2 个 M6×30 六角法兰面螺栓。  \n提示：详情请参照“气缸头”章节。\n2. 断开正极线路  \n掀起起动电机正极线橡胶帽。  \n拆下 正极线螺母，并取下垫片和正极线。\n3. 拆卸固定螺栓  \n拆下固定起动电机的 2 个 M6×30 六角法兰面螺栓（件号 3）。\n4. 取出起动电机  \n取下起动电机。  \n提示：若较难取下，可用橡胶锤轻轻敲击起动电机辅助拆卸。",
+    "spec_data": [],
+    "risk_tips": [
+      "详情请参照“气缸头”章节。",
+      "若较难取下，可用橡胶锤轻轻敲击起动电机辅助拆卸。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P4_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第4页",
+        "text_correspond": "对应2.2 拆卸起动电机操作",
+        "retrieval_tag": [
+          "拆卸起动电机"
+        ]
+      }
+    ],
+    "source_page": 4
+  },
+  {
+    "doc_id": "M003",
+    "big_chapter": "二、起动电机",
+    "sub_title": "2.3 安装起动电机",
+    "operate_text": "1. 检查起动电机状态  \n检查起动电机轴是否转动灵活。  \n若不灵活 → 更换起动电机。\n2. 安装本体  \n将起动电机头部对准左盖孔，适当摇晃并缓慢推入，\n直至起动电机的两个螺栓孔与箱体上的螺纹孔对齐。\n3. 连接负极线  \n按照图示安装起动电机 负极线。\n4. 连接正极线  \n安装 正极线、垫片 和 螺母。\n5. 安装涨紧器  \n提示：详细步骤请参照“气缸头 → 安装涨紧器”。\n三、发动机",
+    "spec_data": [],
+    "risk_tips": [
+      "详细步骤请参照“气缸头 → 安装涨紧器”。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P5_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第5页",
+        "text_correspond": "对应2.3 安装起动电机操作",
+        "retrieval_tag": [
+          "安装起动电机"
+        ]
+      }
+    ],
+    "source_page": 5
+  },
+  {
+    "doc_id": "E001",
+    "big_chapter": "三、发动机",
+    "sub_title": "3.2 拆卸发动机",
+    "operate_text": "1. 排放机油  \n拆下 发动机左曲轴箱上的放油螺栓，将发动机内部机油全部放出。\n拆下 车架上的放油螺栓，将车架内部机油全部放出。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P6_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第6页",
+        "text_correspond": "对应3.2 拆卸发动机操作",
+        "retrieval_tag": [
+          "拆卸发动机"
+        ]
+      },
+      {
+        "img_id": "P6_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第6页",
+        "text_correspond": "对应3.2 拆卸发动机操作",
+        "retrieval_tag": [
+          "拆卸发动机"
+        ]
+      }
+    ],
+    "source_page": 6
+  },
+  {
+    "doc_id": "E002",
+    "big_chapter": "三、发动机",
+    "sub_title": "3.3 安装发动机",
+    "operate_text": "1. 按反向顺序安装  \n安装顺序与拆卸顺序相反。  \n所有螺栓安装后，必须使用扭力扳手校验并打紧至规定扭矩。\n2. 安装各类放油/放水螺栓  \n安装 左曲轴箱放油螺栓、车架放油螺栓、水泵盖放水螺栓。  \n拧紧力矩要求：  \n放油螺栓：25 ± 4 N·m  \n放水螺栓：12 ±",
+    "spec_data": [
+      {
+        "param": "拧紧扭矩",
+        "value": "25 ± 4 N·m"
+      }
+    ],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 8
+  },
+  {
+    "doc_id": "CH005",
+    "big_chapter": "四、气缸头与气门",
+    "sub_title": "4.3 凸轮轴",
+    "operate_text": "拆卸凸轮轴\n \n1. 拆卸气缸头盖及相关密封件\n拆下气缸头盖。  \n依次拆下：  \nM30×",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P11_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第11页",
+        "text_correspond": "对应4.3 凸轮轴操作",
+        "retrieval_tag": [
+          "凸轮轴"
+        ]
+      },
+      {
+        "img_id": "P11_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第11页",
+        "text_correspond": "对应4.3 凸轮轴操作",
+        "retrieval_tag": [
+          "凸轮轴"
+        ]
+      }
+    ],
+    "source_page": 11
+  },
+  {
+    "doc_id": "CH006",
+    "big_chapter": "四、气缸头与气门",
+    "sub_title": "4.5 气缸头盖",
+    "operate_text": "安装气缸头盖\n \n1. 密封处理  \n在气缸头密封帽周围均匀涂抹耐热平面密封硅胶。\n在气缸头装配平面和新气缸头盖垫片两面均涂抹耐热平面密封硅胶。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P13_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第13页",
+        "text_correspond": "对应4.5 气缸头盖操作",
+        "retrieval_tag": [
+          "气缸头盖"
+        ]
+      },
+      {
+        "img_id": "P13_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第13页",
+        "text_correspond": "对应4.5 气缸头盖操作",
+        "retrieval_tag": [
+          "气缸头盖"
+        ]
+      }
+    ],
+    "source_page": 13
+  },
+  {
+    "doc_id": "CH007",
+    "big_chapter": "四、气缸头与气门",
+    "sub_title": "4.6 气门间隙",
+    "operate_text": "测量气门间隙\n \n拆下气缸头盖。  \n将塞尺插入凸轮轴基圆与滑动挺柱之间测量间隙。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P14_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第14页",
+        "text_correspond": "对应4.6 气门间隙操作",
+        "retrieval_tag": [
+          "气门间隙"
+        ]
+      },
+      {
+        "img_id": "P14_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第14页",
+        "text_correspond": "对应4.6 气门间隙操作",
+        "retrieval_tag": [
+          "气门间隙"
+        ]
+      }
+    ],
+    "source_page": 14
+  },
+  {
+    "doc_id": "CH008",
+    "big_chapter": "四、气缸头与气门",
+    "sub_title": "4.7 气缸头",
+    "operate_text": "拆卸气缸头\n \n1. 拆下凸轮轴。  \n2. 按顺序松开以下紧固件：  \n气缸体上的 M6×30 螺栓  \nM8×110 螺栓（件号 12）  \nM10 盖形螺母（件号 10）  \n注意：  \n螺母（10）必须对角均匀拧松。  \n每次仅松开 1/3 圈，待全部松动后再完全取下。\n3. 取下：  \n气缸头  \n导向条  \n缸体缸头垫片\n安装气缸头\n \n1. 安装新缸体缸头垫片与定位销。  \n2. 安装导向条。  \n3. 安装气缸头，使用定扭扳手分三次对角拧紧 M10 螺母（件号 10）：  \n第一次：25 N·m  \n第二次：45 N·m  \n第三次：60 N·m  \n提示：拧紧前需在螺母螺纹处涂抹润滑油。\n4. 拧紧 M8×110 螺栓（件号 12），再拧紧气缸体上的 M6×30 螺栓。",
+    "spec_data": [],
+    "risk_tips": [
+      "螺母（10）必须对角均匀拧松。",
+      "拧紧前需在螺母螺纹处涂抹润滑油。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P15_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第15页",
+        "text_correspond": "对应4.7 气缸头操作",
+        "retrieval_tag": [
+          "气缸头"
+        ]
+      },
+      {
+        "img_id": "P15_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第15页",
+        "text_correspond": "对应4.7 气缸头操作",
+        "retrieval_tag": [
+          "气缸头"
+        ]
+      }
+    ],
+    "source_page": 15
+  },
+  {
+    "doc_id": "CH009",
+    "big_chapter": "四、气缸头与气门",
+    "sub_title": "4.8 气门",
+    "operate_text": "拆卸气门\n \n1. 取下滑动挺柱和气门间隙调整垫片。  \n2. 使用气门拆装器压缩气门弹簧\n依次拆下：  \n气门锁夹  \n气门弹簧上圈  \n气门外弹簧  \n气门内弹簧  \n气门杆径油封  \n气门弹簧座  \n气门（进气门 ×2，排气门 ×2）  \n提示：4 组气门组件必须分别标记，确保装回原位。\n安装气门\n \n1. 依次安装：  \n气门  \n气门弹簧座  \n气门杆径油封  \n气门内弹簧  \n气门外弹簧  \n气门弹簧上圈",
+    "spec_data": [],
+    "risk_tips": [
+      "4 组气门组件必须分别标记，确保装回原位。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P16_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第16页",
+        "text_correspond": "对应4.8 气门操作",
+        "retrieval_tag": [
+          "气门"
+        ]
+      },
+      {
+        "img_id": "P16_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第16页",
+        "text_correspond": "对应4.8 气门操作",
+        "retrieval_tag": [
+          "气门"
+        ]
+      }
+    ],
+    "source_page": 16
+  },
+  {
+    "doc_id": "CP003",
+    "big_chapter": "五、气缸与活塞",
+    "sub_title": "5.2 拆卸气缸与活塞",
+    "operate_text": "1. 轻轻拉出气缸，并用手扶住活塞和连杆。\n2. 将活塞销挡圈的开口转动至挡圈槽的缺口附近，用尖嘴钳将其拆下。\n3. 将活塞销推出连杆小头孔，取下活塞。  \n注意：防止活塞销挡圈掉入箱体内部。\n4. 取下箱体缸体垫片。",
+    "spec_data": [],
+    "risk_tips": [
+      "防止活塞销挡圈掉入箱体内部。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P18_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第18页",
+        "text_correspond": "对应5.2 拆卸气缸与活塞操作",
+        "retrieval_tag": [
+          "拆卸气缸与活塞"
+        ]
+      },
+      {
+        "img_id": "P18_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第18页",
+        "text_correspond": "对应5.2 拆卸气缸与活塞操作",
+        "retrieval_tag": [
+          "拆卸气缸与活塞"
+        ]
+      }
+    ],
+    "source_page": 18
+  },
+  {
+    "doc_id": "CP004",
+    "big_chapter": "五、气缸与活塞",
+    "sub_title": "5.3 检查气缸与活塞",
+    "operate_text": "1. 检查气缸内壁与活塞裙部：\n  \n若有明显刮痕或损伤（用手触摸明显粗糙），必须更换有缺陷的部件。\n2. 检查三道活塞环是否被卡住：\n若卡住，则更换活塞及活塞环。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P18_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第18页",
+        "text_correspond": "对应5.3 检查气缸与活塞操作",
+        "retrieval_tag": [
+          "检查气缸与活塞"
+        ]
+      },
+      {
+        "img_id": "P18_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第18页",
+        "text_correspond": "对应5.3 检查气缸与活塞操作",
+        "retrieval_tag": [
+          "检查气缸与活塞"
+        ]
+      }
+    ],
+    "source_page": 18
+  },
+  {
+    "doc_id": "CP005",
+    "big_chapter": "五、气缸与活塞",
+    "sub_title": "5.4 安装气缸与活塞",
+    "operate_text": "（1）安装全新的箱体缸体垫片\n \n确保箱体缸体装配平面光滑平整；\n在箱体装配平面处涂抹耐热平面密封硅胶；\n安装新垫片后，在其上也需涂抹适量耐热平面密封硅胶。\n（2）将活塞头部插入气缸裙部\n \n“IN”标记一侧朝向气缸后侧（进水管的反向）；\n活塞环应正确装入气缸，不得脱出环槽；\n活塞销孔应全部露出气缸裙部。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P19_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第19页",
+        "text_correspond": "对应5.4 安装气缸与活塞操作",
+        "retrieval_tag": [
+          "安装气缸与活塞"
+        ]
+      },
+      {
+        "img_id": "P19_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第19页",
+        "text_correspond": "对应5.4 安装气缸与活塞操作",
+        "retrieval_tag": [
+          "安装气缸与活塞"
+        ]
+      }
+    ],
+    "source_page": 19
+  },
+  {
+    "doc_id": "CP006",
+    "big_chapter": "五、气缸与活塞",
+    "sub_title": "5.5 拆卸活塞环",
+    "operate_text": "1. 拆下第一道气环、第二道气环、油环组合。  \n提示：拆卸活塞环时，用手打开端部缺口，并将环的另一侧提到活塞顶上。",
+    "spec_data": [],
+    "risk_tips": [
+      "拆卸活塞环时，用手打开端部缺口，并将环的另一侧提到活塞顶上。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P21_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第21页",
+        "text_correspond": "对应5.5 拆卸活塞环操作",
+        "retrieval_tag": [
+          "拆卸活塞环"
+        ]
+      }
+    ],
+    "source_page": 21
+  },
+  {
+    "doc_id": "CP007",
+    "big_chapter": "五、气缸与活塞",
+    "sub_title": "5.6 安装活塞环",
+    "operate_text": "1. 清除活塞环槽和活塞环上的积碳，并在活塞环槽涂抹适量机油。\n2. 安装油环组合：\n先装铜质衬环，再装两道刮片环。  \n注意：\na. 铜质衬环接口处不能重叠。\nb. 铜质衬环位于两道刮片环之间，两道刮片环开口应相互错开 120°～180°。\n3. 安装第二道气环：\n装入活塞二环环槽内。  \n注意：“2R”标记面朝活塞顶部。\n4. 安装第一道气环：",
+    "spec_data": [],
+    "risk_tips": [
+      "a. 铜质衬环接口处不能重叠。",
+      "“2R”标记面朝活塞顶部。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P21_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第21页",
+        "text_correspond": "对应5.6 安装活塞环操作",
+        "retrieval_tag": [
+          "安装活塞环"
+        ]
+      }
+    ],
+    "source_page": 21
+  },
+  {
+    "doc_id": "RC006",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.4 右曲轴箱盖与离合器",
+    "operate_text": "拆卸右盖\n \n1. 分别对角松开右曲轴箱盖螺栓1，依次取下：\n螺栓1\n拉索支架2\n右曲轴箱盖\n止推垫圈3\n纸垫片以及定位销。  \n注意：取出右曲轴箱盖之前，发动机应倾倒放置，以防水泵轴止推垫圈3脱落。",
+    "spec_data": [],
+    "risk_tips": [
+      "取出右曲轴箱盖之前，发动机应倾倒放置，以防水泵轴止推垫圈3脱落。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P25_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第25页",
+        "text_correspond": "对应6.4 右曲轴箱盖与离合器操作",
+        "retrieval_tag": [
+          "右曲轴箱盖与离合器"
+        ]
+      }
+    ],
+    "source_page": 25
+  },
+  {
+    "doc_id": "RC007",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.5 机油泵",
+    "operate_text": "拆卸机油泵\n \n1. 松开螺栓，依次取下：  \n3颗螺栓28  \n机油泵  \n两个定位销  \n油泵座垫\n检查机油泵\n \n1. 拨动机油泵从动齿轮，检查是否能自由转动：  \n若不能自由转动 → 更换机油泵。\n2. 检查油泵座垫：  \n若变形或开裂 → 更换。\n3. 检查O型圈：  \n若开裂或硬化 → 更换。\n安装机油泵\n \n1. 依次放入：  \n两个 φ8 定位销  \n机油泵座垫  \n机油泵  \n3个 φ10 定位销  \n3个 O型圈  \n3颗螺栓（其中 M6×30 螺栓需安装铜垫）  \n2. 锁紧螺栓并用定扭扳手校验扭力。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 28
+  },
+  {
+    "doc_id": "RC008",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.6 初级驱动齿轮、正时主动链轮",
+    "operate_text": "拆卸初级驱动齿轮、正时主动链轮\n \n1. 用17#套筒从左曲轴箱盖上的铝螺塞孔伸入，套在磁电机转子离合器 M12×1.25×50 螺栓上，固定住曲轴。\n2. 用24#套筒逆时针松开初级驱动齿轮螺母35，依次取下：  \n防松垫圈36  \n初级驱动齿轮37  \n平键38  \n正时主动链轮39  \n半圆键40  \n限位挡圈41\n安装初级驱动齿轮、正时主动链轮\n \n1. 安装前检查各部件，如有磨损 → 更换缺陷部件。\n2. 依次放入：  \n限位挡圈  \n半圆键  \n正时主动链轮  \n平键  \n初级驱动齿轮  \n防松垫圈  \n螺母  \n3. 锁紧螺母并用扭力扳手校验扭力。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 28
+  },
+  {
+    "doc_id": "RC009",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.7 换挡星形凸轮",
+    "operate_text": "拆卸星形凸轮\n \n1. 用8#套筒松开 M6×30 螺栓，取下：  \n换挡星形凸轮  \nφ3×10 圆柱销\n安装星形凸轮\n \n1. 安装前检查各部件，如有磨损 → 更换缺陷部件。\n2. 依次放入：  \nφ3×10 圆柱销  \n换挡星形凸轮  \n螺栓  \n3. 拧紧螺栓并用扭力扳手校验扭力。  \n4. 检查各档位转换是否灵活。  \n注意：小心放置圆柱销，防止其掉入箱体内。",
+    "spec_data": [],
+    "risk_tips": [
+      "小心放置圆柱销，防止其掉入箱体内。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 29
+  },
+  {
+    "doc_id": "RC010",
+    "big_chapter": "六、右曲轴箱盖、离合器、机油泵、水泵",
+    "sub_title": "6.8 水泵",
+    "operate_text": "拆卸水泵\n \n1. 用8#套筒松开螺栓，取下：  \n水泵盖  \n水泵密封圈  \n2个定位销  \nO型圈  \n2. 用14#扳手从另一侧卡住水泵轴，用12#套筒套进水泵，松开水泵，取下水泵。\n检查水泵\n \nO型圈：开裂/硬化 → 更换  \n水泵密封圈：变形/开裂 → 更换\n安装水泵\n \n1. 先将水封动环装入水泵，在动环光面上涂抹适量硅油。\n2. 将水泵组件旋入水泵轴，锁紧水泵并校验扭力（扭力：20±",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 29
+  },
+  {
+    "doc_id": "LC004",
+    "big_chapter": "七、左曲轴箱盖、磁电机转子离合器",
+    "sub_title": "7.2 减速齿轮",
+    "operate_text": "拆卸减速齿轮\n \n1. 松开减速齿轮盖上的 3 个螺栓 1，取下减速齿轮盖、减速齿轮。  \n提示：防止减速齿轮上下两个垫圈 3 掉落。",
+    "spec_data": [],
+    "risk_tips": [
+      "防止减速齿轮上下两个垫圈 3 掉落。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P30_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第30页",
+        "text_correspond": "对应7.2 减速齿轮操作",
+        "retrieval_tag": [
+          "减速齿轮"
+        ]
+      }
+    ],
+    "source_page": 30
+  },
+  {
+    "doc_id": "LC005",
+    "big_chapter": "七、左曲轴箱盖、磁电机转子离合器",
+    "sub_title": "7.3 磁电机转子离合器分部件",
+    "operate_text": "拆卸磁电机转子离合器分部件\n \n1. 拆下减速齿轮。\n2. 拆下左曲轴箱盖。\n3. 拆下 M12×1.25×50 六角法兰面螺栓（4），用拉玛将磁电机转子离合器拉出，依次取下：  \n磁电机转子 6  \n止推垫圈 7  \n电起动大齿 8  \n半圆键 9  \n滚针轴承 10  \n26.2×38×1 止推垫圈 7  \n30×42×",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P31_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第31页",
+        "text_correspond": "对应7.3 磁电机转子离合器分部件操作",
+        "retrieval_tag": [
+          "磁电机转子离合器分部件"
+        ]
+      }
+    ],
+    "source_page": 31
+  },
+  {
+    "doc_id": "LC006",
+    "big_chapter": "七、左曲轴箱盖、磁电机转子离合器",
+    "sub_title": "7.4 左曲轴箱盖",
+    "operate_text": "安装左曲轴箱盖\n \n1. 安装两个 φ8×14 空心定位销、全新的 左曲轴箱盖垫片（15）。\n2. 对角均匀拧紧左曲轴箱盖螺栓，并用定扭扳手校正扭力。  \n注意：\na. 如图所示，装上左曲轴箱盖前，在导出线束的橡胶周围均匀涂抹耐热平面密封硅胶。",
+    "spec_data": [],
+    "risk_tips": [
+      "a. 如图所示，装上左曲轴箱盖前，在导出线束的橡胶周围均匀涂抹耐热平面密封硅胶。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [],
+    "source_page": 32
+  },
+  {
+    "doc_id": "T002",
+    "big_chapter": "八、传动装置",
+    "sub_title": "8.3 拆卸传动装置",
+    "operate_text": "1. 松开固定起动电机螺栓，拆卸起动电机。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P35_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第35页",
+        "text_correspond": "对应8.3 拆卸传动装置操作",
+        "retrieval_tag": [
+          "拆卸传动装置"
+        ]
+      }
+    ],
+    "source_page": 35
+  },
+  {
+    "doc_id": "T003",
+    "big_chapter": "八、传动装置",
+    "sub_title": "8.4 检查传动装置",
+    "operate_text": "（1）检查拨叉\n \n检查部位：\n拨叉凸轮从动件（标记1）  \n拨叉卡爪（标记2）  \n如有弯曲、损坏或裂纹 → 更换拨叉",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P36_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第36页",
+        "text_correspond": "对应8.4 检查传动装置操作",
+        "retrieval_tag": [
+          "检查传动装置"
+        ]
+      },
+      {
+        "img_id": "P36_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第36页",
+        "text_correspond": "对应8.4 检查传动装置操作",
+        "retrieval_tag": [
+          "检查传动装置"
+        ]
+      }
+    ],
+    "source_page": 36
+  },
+  {
+    "doc_id": "T004",
+    "big_chapter": "八、传动装置",
+    "sub_title": "8.5 安装传动装置",
+    "operate_text": "1. 将 传动主轴分部件 和 传动副轴分部件 预装完成后，一同装入左曲轴箱内。\n2. 依次安装以下部件（在零件表面涂抹适量机油）：  \n“L”拨叉  \n变速鼓  \n“C”拨叉  \n“R”拨叉  \n拨叉轴  \n换档轴  \n3. 检查传动主轴与副轴转动是否灵活：  \n若不灵活 → 重新安装\n4. 装上：  \n曲轴箱垫片  \n两个 φ8×14 空心定位销  \n5. 盖上右曲轴箱体，直至无缝。\n6. 装上所有螺栓，对角预紧并校验所有螺栓扭力。  \n切记：不要漏装右曲轴箱体上的 M6×30 螺栓。\n7. 装上 换档星形凸轮，检查换档是否顺畅：  \n若不顺畅 → 重新安装传动装置",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P37_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第37页",
+        "text_correspond": "对应8.5 安装传动装置操作",
+        "retrieval_tag": [
+          "安装传动装置"
+        ]
+      }
+    ],
+    "source_page": 37
+  },
+  {
+    "doc_id": "CB002",
+    "big_chapter": "九、曲轴与平衡轴",
+    "sub_title": "9.2 拆卸曲轴与平衡轴",
+    "operate_text": "1. 将曲轴与平衡轴角度错开。  \n2. 一手扶住曲轴右曲柄一端，另一手用橡胶锤轻敲左曲柄一端，取下曲轴与平衡轴。\n注意：连杆杆身不得撞击箱体。",
+    "spec_data": [],
+    "risk_tips": [
+      "连杆杆身不得撞击箱体。"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P39_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第39页",
+        "text_correspond": "对应9.2 拆卸曲轴与平衡轴操作",
+        "retrieval_tag": [
+          "拆卸曲轴与平衡轴"
+        ]
+      },
+      {
+        "img_id": "P39_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第39页",
+        "text_correspond": "对应9.2 拆卸曲轴与平衡轴操作",
+        "retrieval_tag": [
+          "拆卸曲轴与平衡轴"
+        ]
+      }
+    ],
+    "source_page": 39
+  },
+  {
+    "doc_id": "CB003",
+    "big_chapter": "九、曲轴与平衡轴",
+    "sub_title": "9.3 检查曲轴与平衡轴",
+    "operate_text": "（1）检查轴承\n \n（适用于所有轴承）\n用手拨动轴承内圈：\n若有 卡滞 或 磨损 现象 → 更换有缺陷的轴承。  \n注意：  \n箱体上的曲轴轴承 不可左右互换；  \n曲轴轴承与曲轴上的衬套 一一对应。\n（2）检查曲轴与平衡轴\n \n1. 曲轴轴向跳动：≤0.03mm。\n2. 连杆大头轴向间隙：0.15-0.35mm，用塞尺测量。",
+    "spec_data": [],
+    "risk_tips": [
+      "箱体上的曲轴轴承 不可左右互换；"
+    ],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P39_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第39页",
+        "text_correspond": "对应9.3 检查曲轴与平衡轴操作",
+        "retrieval_tag": [
+          "检查曲轴与平衡轴"
+        ]
+      },
+      {
+        "img_id": "P39_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第39页",
+        "text_correspond": "对应9.3 检查曲轴与平衡轴操作",
+        "retrieval_tag": [
+          "检查曲轴与平衡轴"
+        ]
+      }
+    ],
+    "source_page": 39
+  },
+  {
+    "doc_id": "CB004",
+    "big_chapter": "九、曲轴与平衡轴",
+    "sub_title": "9.4 安装曲轴与平衡轴",
+    "operate_text": "1. 将 左曲轴箱体水平放置（合箱面朝上）。\n2. 在 曲轴轴承 与 平衡轴轴承 上 喷涂适量机油。\n3. 装配对正要求：\n平衡轴齿轮上的标记（图示 “B”）与  曲轴齿轮上的标记（图示 “A”） 必须对正角相。",
+    "spec_data": [],
+    "risk_tips": [],
+    "related_parts": [],
+    "multimodal_images": [
+      {
+        "img_id": "P40_img1",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第40页",
+        "text_correspond": "对应9.4 安装曲轴与平衡轴操作",
+        "retrieval_tag": [
+          "安装曲轴与平衡轴"
+        ]
+      },
+      {
+        "img_id": "P40_img2",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第40页",
+        "text_correspond": "对应9.4 安装曲轴与平衡轴操作",
+        "retrieval_tag": [
+          "安装曲轴与平衡轴"
+        ]
+      },
+      {
+        "img_id": "P40_img3",
+        "img_type": "PDF提取图片",
+        "img_annotations": "来自第40页",
+        "text_correspond": "对应9.4 安装曲轴与平衡轴操作",
+        "retrieval_tag": [
+          "安装曲轴与平衡轴"
+        ]
+      }
+    ],
+    "source_page": 40
+  }
+]
