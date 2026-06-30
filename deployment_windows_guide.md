@@ -114,7 +114,7 @@ JWT_EXPIRE_MINUTES=30
 [1/3] 安装后端依赖（首次）
 [1/3] 启动后端服务 → 弹窗: http://localhost:8000
 [2/3] 安装前端依赖（首次）
-[2/3] 启动前端服务 → 弹窗: http://localhost:5173
+[2/3] 启动前端服务 → 弹窗: http://localhost:3000
 [3/3] 检查生产构建
 ```
 
@@ -137,10 +137,10 @@ JWT_EXPIRE_MINUTES=30
 cd backend
 
 # 创建虚拟环境（仅首次）
-python -m venv venv
+python -m venv pyenv
 
 # 激活虚拟环境
-venv\Scripts\activate
+pyenv\Scripts\activate
 
 # 安装依赖（仅首次）
 pip install -r requirements.txt
@@ -178,12 +178,12 @@ npx vite
 
 ```
 VITE v5.x  ready in xxx ms
-➜  Local:   http://localhost:5173/
+➜  Local:   http://localhost:3000/
 ```
 
 ### 4.3 访问系统
 
-打开浏览器 → **http://localhost:5173**
+打开浏览器 → **http://localhost:3000**
 
 ---
 
@@ -276,7 +276,7 @@ cd frontend && npm run build
 
 # 启动后端（终端1）
 cd ..\backend
-venv\Scripts\activate && python main.py
+pyenv\Scripts\activate && python main.py
 
 # 启动静态服务器 + 代理（终端2）
 http-server frontend/dist -p 8080 --proxy http://localhost:8000
@@ -292,7 +292,7 @@ http-server frontend/dist -p 8080 --proxy http://localhost:8000
 
 ```bash
 cd backend
-venv\Scripts\activate
+pyenv\Scripts\activate
 python create_admin.py
 ```
 
@@ -323,7 +323,7 @@ python create_test_user.py
 | `pip` 安装报 SSL 错误 | 公司网络 / VPN | `pip install -r requirements.txt --trusted-host pypi.org --trusted-host files.pythonhosted.org` |
 | `npm install` 报错 | Node 版本过低 | `nvm install 18` 或升级 Node.js |
 | 端口 8000 被占用 | 其他程序占用 | 修改 `.env` 中的 `PORT` 值 |
-| 端口 5173 被占用 | 其他程序占用 | Vite 会自动找下一个可用端口（见控制台输出） |
+| 端口 3000 被占用 | 其他程序占用 | Vite 会自动找下一个可用端口（见控制台输出） |
 | 前端访问 API 403/404 | 跨域/代理问题 | 确认 vite.config.ts 中 proxy 配置正确 |
 | `bcrypt` 安装失败 | 缺少 C++ 编译工具 | `pip install bcrypt --no-build-isolation` |
 | 汉字显示乱码 | 终端编码 | start_windows.bat 已包含 `chcp 65001` |
@@ -341,7 +341,7 @@ backend/
 │   ├── images/              ← 上传图片 + PDF 提取图片
 │   ├── processed/           ← 结构化JSON数据
 │   └── uploads/             ← 用户上传文档
-├── venv/                    ← Python 虚拟环境（首次启动创建）
+├── pyenv/                   ← Python 虚拟环境（首次启动创建）
 └── .env                     ← 密钥配置（勿分享）
 ```
 
@@ -352,7 +352,7 @@ backend/
 ```bash
 # 重启后端（无需重启前端）
 cd backend
-venv\Scripts\activate
+pyenv\Scripts\activate
 python main.py                    # Ctrl+C 停止 → 再运行即可
 
 # 清除数据库（从头开始）
@@ -361,7 +361,7 @@ del backend\data\app.db
 
 # 重新处理 PDF 数据
 cd backend
-venv\Scripts\activate
+pyenv\Scripts\activate
 python scripts/parse_pdf_to_dataxyy.py
 
 # 查看 API 文档（后端运行后）

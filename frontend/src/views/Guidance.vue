@@ -55,6 +55,22 @@
                 <span class="meta-item">创建时间：{{ formatDate(guidanceDetail.created_at) }}</span>
               </div>
               <div class="detail-body" v-html="formatContent(guidanceDetail.content)"></div>
+              <div v-if="relatedPosts.length > 0" class="related-section">
+                <h4 class="related-heading">类似用户经验 ({{ relatedPosts.length }})</h4>
+                <div 
+                  v-for="post in relatedPosts.slice(0, 5)" 
+                  :key="post.id"
+                  class="related-post-item"
+                  @click="goToPost(post.id)"
+                >
+                  <div class="related-post-title">{{ post.title }}</div>
+                  <div class="related-post-meta">
+                    <span>{{ post.author_name }}</span>
+                    <span>{{ formatDate(post.created_at) }}</span>
+                    <span>👍 {{ post.likes }}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
           <div class="modal-footer">
@@ -67,14 +83,16 @@
 </template>
 
 <script setup lang="ts">
+import { ElMessage } from "element-plus"
 import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import Layout from '../components/Layout.vue'
 import { api } from '../api'
 import { markdownToHtml } from '../utils/format'
 import { useUserStore } from '../stores/user'
 
 const route = useRoute()
+const router = useRouter()
 const userStore = useUserStore()
 
 const guidanceList = ref<any[]>([])
@@ -82,6 +100,7 @@ const guidanceDetail = ref<any>(null)
 const loading = ref(false)
 const loadingDetail = ref(false)
 const showDetailModal = ref(false)
+const relatedPosts = ref<any[]>([])
 
 const formatDate = (dateStr: string) => {
   if (!dateStr) return ''
@@ -109,16 +128,143 @@ const loadList = async () => {
 const openDetailModal = async (id: number) => {
   showDetailModal.value = true
   loadingDetail.value = true
+  relatedPosts.value = []
   try {
     const response = await api.guidance.get(id)
     if (response.guidance) {
       guidanceDetail.value = response.guidance
+      // 智能匹配类似用户经验：从方案中提取核心关键词搜索社区帖子
+      // 优先按设备类型+故障类型组合搜索，其次按故障类型，最后按设备类型
+      const g = response.guidance
+      let searchResults: any[] = []
+      
+      // 方法1：按 device_type + fault_type 组合搜索
+      if (g.device_type && g.fault_type) {
+        const device = cleanKeyword(g.device_type)
+        const fault = cleanKeyword(g.fault_type)
+        if (device && fault) {
+          try {
+            const resp1 = await api.community.list({ 
+              device_type: device,
+              fault_type: fault,
+              page_size: 5 
+            })
+            if (resp1?.items?.length) {
+              searchResults = resp1.items
+            }
+          } catch (e) {}
+        }
+      }
+      
+      // 方法2：如果没找到，按 fault_type 搜索
+      if (searchResults.length === 0 && g.fault_type) {
+        const fault = cleanKeyword(g.fault_type)
+        if (fault) {
+          try {
+            const resp2 = await api.community.list({ 
+              fault_type: fault,
+              page_size: 5 
+            })
+            if (resp2?.items?.length) {
+              searchResults = resp2.items
+            }
+          } catch (e) {}
+        }
+      }
+      
+      // 方法3：如果还没找到，按 device_type 搜索，但只保留故障类型相关的帖子
+      if (searchResults.length === 0 && g.device_type) {
+        const device = cleanKeyword(g.device_type)
+        if (device) {
+          try {
+            const resp3 = await api.community.list({ 
+              device_type: device,
+              page_size: 5 
+            })
+            if (resp3?.items?.length) {
+              if (g.fault_type) {
+                const faultWords = extractKeywords(cleanKeyword(g.fault_type))
+                searchResults = resp3.items.filter((post: any) => {
+                  if (!post.fault_type) return false
+                  const postFault = cleanKeyword(post.fault_type)
+                  return faultWords.some(word => postFault.includes(word))
+                })
+              } else {
+                searchResults = resp3.items
+              }
+            }
+          } catch (e) {}
+        }
+      }
+      
+      // 方法4：最后尝试关键词搜索
+      if (searchResults.length === 0) {
+        let keyword = ''
+        if (g.fault_type) {
+          keyword = cleanKeyword(g.fault_type) || ''
+        } else if (g.device_type) {
+          keyword = cleanKeyword(g.device_type) || ''
+        }
+        if (keyword) {
+          try {
+            const resp4 = await api.community.list({ 
+              keyword: keyword.substring(0, 20),
+              page_size: 5 
+            })
+            if (resp4?.items?.length) {
+              searchResults = resp4.items
+            }
+          } catch (e) {}
+        }
+      }
+      
+      if (searchResults.length > 0) {
+        relatedPosts.value = searchResults
+      }
     }
   } catch (error) {
     console.error('加载方案详情失败:', error)
   } finally {
     loadingDetail.value = false
   }
+}
+
+// 清理关键词：去掉编号前缀
+const cleanKeyword = (str: string): string => {
+  if (!str) return ''
+  // 去掉数字编号：1.  9.1  1.2.3
+  let cleaned = str.replace(/^\d+[\.\、]\s*/, '')
+  // 去掉中文编号：一、二、三...  一、  九、...
+  cleaned = cleaned.replace(/^[一二三四五六七八九十]+[\、，]\s*/, '')
+  // 去掉多余空格
+  cleaned = cleaned.trim()
+  return cleaned.length >= 2 ? cleaned.substring(0, 20) : ''
+}
+
+// 提取有意义的关键词（使用滑动窗口提取2-4字符组合）
+const extractKeywords = (str: string): string[] => {
+  if (!str) return []
+  const verbs = ['拆卸', '安装', '更换', '检查', '维修', '清洗', '调整', '测试', '保养', '与']
+  let result = str
+  verbs.forEach(v => {
+    result = result.split(v).join(' ')
+  })
+  result = result.replace(/\d+/g, ' ')
+  result = result.replace(/[\s\/\-]+/g, '')
+  const keywords: string[] = []
+  for (let len = 2; len <= 4 && len <= result.length; len++) {
+    for (let i = 0; i <= result.length - len; i++) {
+      const kw = result.substring(i, i + len)
+      if (!keywords.includes(kw)) {
+        keywords.push(kw)
+      }
+    }
+  }
+  return keywords
+}
+
+const goToPost = (postId: number) => {
+  router.push(`/community/${postId}`)
 }
 
 const closeDetailModal = () => {
@@ -133,18 +279,17 @@ const deleteGuidance = async () => {
   try {
     const userId = userStore.userInfo?.id
     await api.guidance.delete(guidanceDetail.value.id, { user_id: userId })
-    alert('删除成功')
+    ElMessage('删除成功')
     closeDetailModal()
     loadList()
   } catch (error) {
     console.error('删除失败:', error)
-    alert('删除失败')
+    ElMessage('删除失败')
   }
 }
 
 onMounted(() => {
   loadList()
-  // 如果路由中有id参数，直接打开该检修方案详情
   const id = route.params.taskId
   if (id) {
     openDetailModal(Number(id))
@@ -379,6 +524,46 @@ onMounted(() => {
   border: none;
   border-top: 1px solid #e2e8f0;
   margin: 14px 0;
+}
+
+.related-section {
+  margin-top: 24px;
+  padding-top: 20px;
+  border-top: 1px solid #e2e8f0;
+}
+
+.related-heading {
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: #166534;
+}
+
+.related-post-item {
+  padding: 10px 14px;
+  background: #f0fdf4;
+  border: 1px solid #bbf7d0;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 8px;
+  transition: background 0.15s;
+}
+
+.related-post-item:hover {
+  background: #dcfce7;
+}
+
+.related-post-item .related-post-title {
+  margin: 0 0 4px;
+  font-size: 14px;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.related-post-item .related-post-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 12px;
+  color: #94a3b8;
 }
 
 .modal-overlay {

@@ -11,6 +11,15 @@
               class="search-input"
               @keyup.enter="handleSearch"
             />
+            <button 
+              class="mic-btn" 
+              :class="{ recording: isRecording }"
+              @click="toggleVoiceInput"
+              :title="speechSupported ? '点击语音输入' : '浏览器不支持语音识别'"
+              :disabled="!speechSupported"
+            >
+              {{ isRecording ? '🎙️' : '🎤' }}
+            </button>
             <button class="search-btn" @click="handleSearch">搜索</button>
             <button class="ai-btn" @click="goToAi">AI助手</button>
           </div>
@@ -34,27 +43,18 @@
         </div>
       </div>
       
-      <div v-if="searchResults.length > 0 || communityResults.length > 0" class="results-section">
+      <div v-if="searchResults.length > 0" class="results-section">
         <div class="results-header">
           <div class="results-tabs">
             <button 
-              class="tab-btn" 
-              :class="{ active: activeTab === 'docs' }"
-              @click="activeTab = 'docs'"
+              class="tab-btn active"
             >
-              官方文档 ({{ docResults.length }})
-            </button>
-            <button 
-              class="tab-btn" 
-              :class="{ active: activeTab === 'community' }"
-              @click="activeTab = 'community'"
-            >
-              用户经验 ({{ communityResults.length }})
+              检索结果 ({{ docResults.length }})
             </button>
           </div>
         </div>
         
-        <div v-if="activeTab === 'docs'" class="results-list">
+        <div class="results-list">
           <div class="sub-tabs">
             <button 
               class="sub-tab-btn" 
@@ -183,34 +183,6 @@
           </div>
           </div>
         </div>
-        
-        <div v-else-if="activeTab === 'community'" class="results-list">
-          <div v-if="communityResults.length === 0 && !loading" class="empty-state-inner">
-            <p>暂无相关用户经验</p>
-          </div>
-          <div v-else class="community-list">
-            <div 
-              v-for="(post, index) in communityResults" 
-              :key="'community-' + index"
-              class="community-card"
-              @click="goToCommunityPost(post.id)"
-            >
-              <div class="community-info">
-                <h4 class="community-title">{{ post.title }}</h4>
-                <div class="community-meta">
-                  <span class="community-device">{{ post.device_type }}</span>
-                  <span class="community-fault">{{ post.fault_type }}</span>
-                  <span class="community-author">{{ post.author_name }}</span>
-                  <span class="community-stats">
-                    👁 {{ post.views || 0 }} · 👍 {{ post.likes || 0 }}
-                  </span>
-                </div>
-                <p class="community-excerpt">{{ getExcerpt(post.content) }}</p>
-              </div>
-              <div class="community-date">{{ formatDate(post.created_at) }}</div>
-            </div>
-          </div>
-        </div>
       </div>
       
       <div v-if="!searchResults.length && !loading" class="empty-state">
@@ -335,7 +307,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { ElMessage } from "element-plus"
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import Layout from '../components/Layout.vue'
 import { api } from '../api'
@@ -346,18 +319,18 @@ const router = useRouter()
 const userStore = useUserStore()
 const searchQuery = ref('')
 const searchResults = ref<any[]>([])
-const communityResults = ref<any[]>([])
 const showDetailModal = ref(false)
 const showImageModal = ref(false)
 const selectedResult = ref<any>(null)
 const previewImage = ref<any>(null)
 const addingToGuidance = ref(false)
 const loading = ref(false)
-const activeTab = ref('docs')
 const docSubTab = ref('text')
 const searchSuggestion = ref<any>(null)
 
-const API_BASE = 'http://localhost:8000'
+const isRecording = ref(false)
+const recognition = ref<any>(null)
+const speechSupported = ref(false)
 
 const textResults = computed(() => {
   return searchResults.value.filter(r => r.type !== 'image')
@@ -378,24 +351,10 @@ const displayResults = computed(() => {
   return textResults.value
 })
 
-const getExcerpt = (content: string) => {
-  if (!content) return ''
-  return content.substring(0, 100) + (content.length > 100 ? '...' : '')
-}
-
-const formatDate = (dateStr: string) => {
-  if (!dateStr) return ''
-  return dateStr.split('T')[0]
-}
-
-const goToCommunityPost = (id: number) => {
-  router.push(`/community/${id}`)
-}
-
 const getImageUrl = (url: string | undefined) => {
   if (!url) return ''
   if (url.startsWith('http')) return url
-  return API_BASE + url
+  return url
 }
 
 const goToAi = () => {
@@ -408,24 +367,19 @@ const goToAi = () => {
 
 const handleSearch = async () => {
   if (!searchQuery.value) {
-    alert('请输入查询内容')
+    ElMessage('请输入查询内容')
     return
   }
   
   loading.value = true
   
   try {
-    const [searchResponse, communityResponse] = await Promise.all([
-      api.search.text(searchQuery.value),
-      api.community.list({ keyword: searchQuery.value, page_size: 10 })
-    ])
-    
+    const searchResponse = await api.search.text(searchQuery.value)
     searchResults.value = searchResponse.results || []
     searchSuggestion.value = searchResponse.suggestion || null
-    communityResults.value = communityResponse.items || []
   } catch (error) {
     console.error('搜索失败:', error)
-    alert('搜索失败，请检查后端服务')
+    ElMessage('搜索失败，请检查后端服务')
   } finally {
     loading.value = false
   }
@@ -478,14 +432,14 @@ const addToGuidance = async (result: any) => {
       user_id: userStore.userInfo?.id
     })
     
-    if (saveResponse && saveResponse.guidance_id) {
-      router.push(`/guidance/${saveResponse.guidance_id}`)
+    if (saveResponse && (saveResponse.id || saveResponse.guidance_id)) {
+      router.push(`/guidance/${saveResponse.id || saveResponse.guidance_id}`)
     } else {
-      alert('保存失败')
+      ElMessage('保存失败')
     }
   } catch (error: any) {
     console.error('生成失败:', error)
-    alert(error.response?.data?.detail || error.message || '生成失败，请检查后端服务是否已配置大模型')
+    ElMessage(error.response?.data?.detail || error.message || '生成失败，请检查后端服务是否已配置大模型')
   } finally {
     addingToGuidance.value = false
   }
@@ -496,6 +450,68 @@ const selectChapter = (chapter: string) => {
   searchSuggestion.value = null
   handleSearch()
 }
+
+const initSpeechRecognition = () => {
+  const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+  if (!SpeechRecognition) {
+    speechSupported.value = false
+    return
+  }
+  speechSupported.value = true
+
+  const rec = new SpeechRecognition()
+  rec.lang = 'zh-CN'
+  rec.interimResults = false
+  rec.continuous = false
+  rec.maxAlternatives = 1
+
+  rec.onresult = (event: any) => {
+    const transcript = event.results[0][0].transcript
+    searchQuery.value = transcript
+    isRecording.value = false
+    handleSearch()
+  }
+
+  rec.onerror = (event: any) => {
+    console.error('语音识别错误:', event.error)
+    isRecording.value = false
+    if (event.error === 'not-allowed') {
+      ElMessage('请允许麦克风权限以使用语音输入')
+    }
+  }
+
+  rec.onend = () => {
+    isRecording.value = false
+  }
+
+  recognition.value = rec
+}
+
+const toggleVoiceInput = () => {
+  if (!recognition.value) return
+
+  if (isRecording.value) {
+    recognition.value.stop()
+    isRecording.value = false
+  } else {
+    try {
+      recognition.value.start()
+      isRecording.value = true
+    } catch (e) {
+      console.error('启动语音识别失败:', e)
+    }
+  }
+}
+
+onMounted(() => {
+  initSpeechRecognition()
+})
+
+onUnmounted(() => {
+  if (recognition.value) {
+    recognition.value.stop()
+  }
+})
 </script>
 
 <style scoped>
@@ -544,6 +560,42 @@ const selectChapter = (chapter: string) => {
   border-radius: 8px;
   cursor: pointer;
   font-size: 14px;
+}
+
+.mic-btn {
+  width: 42px;
+  height: 42px;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+
+.mic-btn:hover {
+  background: #e2e8f0;
+}
+
+.mic-btn.recording {
+  background: #ef4444;
+  border-color: #ef4444;
+  color: white;
+  animation: pulse 1s infinite;
+}
+
+.mic-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
+  70% { box-shadow: 0 0 0 10px rgba(239, 68, 68, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
 }
 
 .ai-btn {
@@ -1244,72 +1296,5 @@ const selectChapter = (chapter: string) => {
 
 .results-list-inner {
   min-height: 200px;
-}
-
-.empty-state-inner {
-  text-align: center;
-  padding: 40px 20px;
-  color: #94a3b8;
-}
-
-.community-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.community-card {
-  background: white;
-  padding: 16px 20px;
-  border-radius: 10px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-  cursor: pointer;
-  transition: box-shadow 0.2s, transform 0.2s;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-}
-
-.community-card:hover {
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
-}
-
-.community-info {
-  flex: 1;
-}
-
-.community-title {
-  margin: 0 0 6px;
-  font-size: 15px;
-  color: #1e293b;
-  font-weight: 600;
-}
-
-.community-meta {
-  display: flex;
-  gap: 10px;
-  font-size: 12px;
-  color: #64748b;
-  margin-bottom: 8px;
-  flex-wrap: wrap;
-}
-
-.community-stats {
-  margin-left: auto;
-}
-
-.community-excerpt {
-  margin: 0;
-  font-size: 13px;
-  color: #64748b;
-  line-height: 1.5;
-}
-
-.community-date {
-  font-size: 12px;
-  color: #94a3b8;
-  white-space: nowrap;
-  margin-left: 16px;
 }
 </style>

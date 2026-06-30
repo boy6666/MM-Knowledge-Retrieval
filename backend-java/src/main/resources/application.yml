@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/motor_maintenance
+    username: postgres
+    password: 1234
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+  jackson:
+    property-naming-strategy: SNAKE_CASE
+    default-property-inclusion: non_null
+
+repair:
+  jwt:
+    secret: RkVCRUNBMDUyNzlDQjAzQkI0OUJBNjM4MjIxRjY3QUI=
+    expiration: 86400000
+  python:
+    base-url: http://localhost:8001

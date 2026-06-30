@@ -54,12 +54,9 @@
           <button 
             class="tool-btn" 
             :class="{ recording: isRecording }"
-            @mousedown="startRecording" 
-            @mouseup="stopRecording"
-            @mouseleave="stopRecording"
-            @touchstart.prevent="startRecording"
-            @touchend.prevent="stopRecording"
-            title="按住说话"
+            @click="toggleRecording"
+            :title="speechSupported ? '点击语音输入' : '浏览器不支持语音识别'"
+            :disabled="!speechSupported"
           >
             {{ isRecording ? '🎙️' : '🎤' }}
           </button>
@@ -114,7 +111,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, nextTick } from 'vue'
+import { ElMessage } from "element-plus"
+import { ref, onMounted, onUnmounted, nextTick } from 'vue'
 import { useRouter } from 'vue-router'
 import Layout from '../components/Layout.vue'
 import { api } from '../api'
@@ -130,8 +128,8 @@ const loading = ref(false)
 const messagesContainer = ref<HTMLElement | null>(null)
 
 const isRecording = ref(false)
-const mediaRecorder = ref<MediaRecorder | null>(null)
-const audioChunks = ref<Blob[]>([])
+const recognition = ref<any>(null)
+const speechSupported = ref(false)
 
 const pendingFiles = ref<{ type: string; file: File }[]>([])
 const imageInput = ref<HTMLInputElement | null>(null)
@@ -139,12 +137,10 @@ const videoInput = ref<HTMLInputElement | null>(null)
 const showImageModal = ref(false)
 const previewImageUrl = ref('')
 
-const API_BASE = 'http://localhost:8000'
-
 const getImageUrl = (url: string) => {
   if (!url) return ''
   if (url.startsWith('http')) return url
-  return API_BASE + url
+  return url
 }
 
 const scrollToBottom = async () => {
@@ -199,7 +195,9 @@ const sendMessage = async () => {
       content: response.response,
       media_type: 'text',
       media_url: '',
-      is_media: false
+      is_media: false,
+      _message_id: response.message_id,
+      _conversation_id: conversationId.value
     })
     
     if (response.related_images && response.related_images.length > 0) {
@@ -263,68 +261,88 @@ const clearPendingFiles = () => {
   if (videoInput.value) videoInput.value.value = ''
 }
 
-const startRecording = async () => {
-  if (isRecording.value) return
-  
-  try {
-    const stream = await navigator.mediaDevices.getUserMedia({ audio: true })
-    mediaRecorder.value = new MediaRecorder(stream)
-    audioChunks.value = []
-    
-    mediaRecorder.value.ondataavailable = (event) => {
-      if (event.data.size > 0) {
-        audioChunks.value.push(event.data)
-      }
-    }
-    
-    mediaRecorder.value.onstop = () => {
-      const audioBlob = new Blob(audioChunks.value, { type: 'audio/webm' })
-      const audioFile = new File([audioBlob], `voice_${Date.now()}.webm`, { type: 'audio/webm' })
-      pendingFiles.value.push({ type: 'audio', file: audioFile })
-      stream.getTracks().forEach(track => track.stop())
-    }
-    
-    mediaRecorder.value.start()
-    isRecording.value = true
-  } catch (error) {
-    console.error('录音失败:', error)
-    alert('无法访问麦克风，请检查权限')
+const initSpeechRecognition = () => {
+  const SpeechRecognition = (window as any).SpeechRecognition || (window as any).webkitSpeechRecognition
+  if (!SpeechRecognition) {
+    speechSupported.value = false
+    return
   }
+  speechSupported.value = true
+  
+  const rec = new SpeechRecognition()
+  rec.lang = 'zh-CN'
+  rec.interimResults = false
+  rec.continuous = false
+  rec.maxAlternatives = 1
+
+  rec.onresult = (event: any) => {
+    const transcript = event.results[0][0].transcript
+    inputMessage.value = transcript
+    isRecording.value = false
+  }
+
+  rec.onerror = (event: any) => {
+    console.error('语音识别错误:', event.error)
+    isRecording.value = false
+    if (event.error === 'not-allowed') {
+      ElMessage('请允许麦克风权限以使用语音输入')
+    }
+  }
+
+  rec.onend = () => {
+    isRecording.value = false
+  }
+
+  recognition.value = rec
 }
 
-const stopRecording = () => {
-  if (mediaRecorder.value && isRecording.value) {
-    mediaRecorder.value.stop()
+const toggleRecording = () => {
+  if (!recognition.value) return
+  
+  if (isRecording.value) {
+    recognition.value.stop()
     isRecording.value = false
+  } else {
+    try {
+      recognition.value.start()
+      isRecording.value = true
+    } catch (e) {
+      console.error('启动语音识别失败:', e)
+    }
   }
 }
 
 const addToGuidance = async (msg: any) => {
   try {
-    const faultType = msg.content.substring(0, 50) + (msg.content.length > 50 ? '...' : '')
+    const title = msg.content.substring(0, 30) + (msg.content.length > 30 ? '...' : '')
     
-    const saveResponse = await api.guidance.save({
-      title: `摩托车发动机 - ${faultType}`,
-      device_type: '摩托车发动机',
-      fault_type: faultType,
-      content: msg.content || '',
-      source_type: 'ai_chat_generated',
+    const saveResponse = await api.guidance.generateFromChat({
+      conversation_id: msg._conversation_id || conversationId.value,
+      message_id: msg._message_id,
+      title: title,
       user_id: userStore.userInfo?.id
     })
     
-    if (saveResponse && saveResponse.guidance_id) {
-      router.push(`/guidance/${saveResponse.guidance_id}`)
+    if (saveResponse && (saveResponse.id || saveResponse.guidance_id)) {
+      router.push(`/guidance/${saveResponse.id || saveResponse.guidance_id}`)
     } else {
-      alert('保存失败')
+      ElMessage('保存失败')
     }
   } catch (error: any) {
     console.error('生成失败:', error)
-    alert(error.response?.data?.detail || error.message || '生成失败，请检查后端服务')
+    ElMessage(error.response?.data?.detail || error.message || '生成失败，请检查后端服务')
   }
 }
 
 onMounted(() => {
   startNewChat()
+  initSpeechRecognition()
+})
+
+onUnmounted(() => {
+  if (recognition.value) {
+    recognition.value.stop()
+  }
 })
 </script>
 

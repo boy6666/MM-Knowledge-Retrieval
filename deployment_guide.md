@@ -113,7 +113,7 @@ git rm --cached backend/.env
 # 将 allow_origins=["*"] 改为:
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:4173", "http://your-domain.com"],
+    allow_origins=["http://localhost:3000", "http://localhost:4173", "http://your-domain.com"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

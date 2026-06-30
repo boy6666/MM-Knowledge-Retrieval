@@ -48,6 +48,7 @@
                   <span>👍 {{ post.likes || 0 }}</span>
                 </span>
               </div>
+              <p v-if="post.matched_chapter" class="post-chapter">关联：{{ post.matched_chapter }}</p>
               <p class="post-excerpt">{{ getExcerpt(post.content) }}</p>
             </div>
             <div class="post-date">{{ formatDate(post.created_at) }}</div>
@@ -88,6 +89,9 @@
                 <span class="meta-item">浏览：{{ postDetail.views || 0 }} 次</span>
                 <span class="meta-item">发布时间：{{ formatDate(postDetail.created_at) }}</span>
               </div>
+              <div v-if="postDetail.matched_chapter" class="detail-matched">
+                关联官方文档：{{ postDetail.matched_chapter }}
+              </div>
               <div class="detail-body" v-html="formatContent(postDetail.content)"></div>
             </div>
           </div>
@@ -99,6 +103,11 @@
             >
               👍 {{ postDetail?.likes || 0 }}
             </button>
+            <button 
+              v-if="postDetail && currentUser && currentUser.id === postDetail.author_id"
+              class="action-btn delete-btn" 
+              @click.stop="deletePost"
+            >🗑 删除</button>
           </div>
         </div>
       </div>
@@ -116,13 +125,53 @@
             </div>
             <div class="form-row">
               <div class="form-group">
-                <label>设备类型</label>
-                <input v-model="publishForm.device_type" type="text" placeholder="如：发动机" />
+                <label>设备</label>
+                <select v-model="selectedCategory" @change="onCategoryChange">
+                  <option value="">请选择设备大类</option>
+                  <option v-for="cat in deviceCategories" :key="cat.category" :value="cat.category">{{ cat.category }}</option>
+                  <option value="__other__">其他（手动输入）</option>
+                </select>
+                <input 
+                  v-if="selectedCategory === '__other__'"
+                  v-model="publishForm.device_custom" 
+                  type="text" 
+                  placeholder="请输入设备名称，如：自行车"
+                  class="custom-input"
+                />
               </div>
               <div class="form-group">
-                <label>故障类型</label>
-                <input v-model="publishForm.fault_type" type="text" placeholder="如：异响" />
+                <label>维修部位（章节）</label>
+                <select v-model="selectedChapter" :disabled="!selectedCategory || selectedCategory === '__other__'" @change="onChapterChange">
+                  <option value="">请选择章节</option>
+                  <option v-for="ch in currentChapters" :key="ch.title" :value="ch.title">{{ ch.title }}</option>
+                  <option value="__other__">其他（手动输入）</option>
+                </select>
+                <input 
+                  v-if="selectedChapter === '__other__' || selectedCategory === '__other__'"
+                  v-model="publishForm.chapter_custom" 
+                  type="text" 
+                  placeholder="请输入章节，如：曲轴维修"
+                  class="custom-input"
+                />
               </div>
+            </div>
+            <div class="form-group" v-if="currentParts.length > 0 && selectedChapter !== '__other__'">
+              <label>具体部位（可选）</label>
+              <select v-model="selectedPart">
+                <option value="">请选择具体部位</option>
+                <option v-for="p in currentParts" :key="p" :value="p">{{ p }}</option>
+                <option value="__other__">其他（手动输入）</option>
+              </select>
+              <input 
+                v-if="selectedPart === '__other__'"
+                v-model="publishForm.part_custom" 
+                type="text" 
+                placeholder="请输入具体部位"
+                class="custom-input"
+              />
+            </div>
+            <div v-if="matchedPreview" class="match-preview">
+              将关联到官方文档：<strong>{{ matchedPreview }}</strong>
             </div>
             <div class="form-group">
               <label>你的昵称</label>
@@ -150,14 +199,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ElMessage } from "element-plus"
+import { ref, onMounted, computed, inject } from 'vue'
 import { useRoute } from 'vue-router'
 import Layout from '../components/Layout.vue'
 import { api } from '../api'
 import { markdownToHtml } from '../utils/format'
 
-
 const route = useRoute()
+const currentUser = inject<any>('currentUser', null)
 const posts = ref<any[]>([])
 const postDetail = ref<any>(null)
 const loading = ref(false)
@@ -172,13 +222,75 @@ const total = ref(0)
 const showPublishModal = ref(false)
 const showDetailModal = ref(false)
 const publishing = ref(false)
+
+// 三层分类结构
+const deviceCategories = ref<{ category: string; sources: { name: string; chapters: { title: string; parts: string[] }[] }[] }[]>([])
+const selectedCategory = ref('')
+const selectedChapter = ref('')
+const selectedPart = ref('')
+
 const publishForm = ref({
   title: '',
-  device_type: '',
-  fault_type: '',
+  device_custom: '',
+  chapter_custom: '',
+  part_custom: '',
   author_name: '',
   content: ''
 })
+
+// 当前选中的 source（自动取第一个）
+const currentSource = computed(() => {
+  const cat = deviceCategories.value.find(c => c.category === selectedCategory.value)
+  return cat?.sources?.[0] || null
+})
+
+// 当前章节列表
+const currentChapters = computed(() => {
+  return currentSource.value?.chapters || []
+})
+
+// 当前部位列表
+const currentParts = computed(() => {
+  const ch = currentChapters.value.find(c => c.title === selectedChapter.value)
+  return ch?.parts || []
+})
+
+// 预览关联路径
+const matchedPreview = computed(() => {
+  if (!selectedCategory.value) return ''
+  let path = selectedCategory.value === '__other__' ? publishForm.value.device_custom || '...' : selectedCategory.value
+  
+  if (selectedCategory.value !== '__other__') {
+    const src = currentSource.value
+    if (src) path += ' > ' + src.name
+  }
+  
+  if (selectedChapter.value && selectedChapter.value !== '__other__') {
+    path += ' > ' + selectedChapter.value
+  } else if (publishForm.value.chapter_custom) {
+    path += ' > ' + publishForm.value.chapter_custom
+  }
+  
+  if (selectedPart.value && selectedPart.value !== '__other__') {
+    path += ' > ' + selectedPart.value
+  } else if (publishForm.value.part_custom) {
+    path += ' > ' + publishForm.value.part_custom
+  }
+  
+  return path
+})
+
+const onCategoryChange = () => {
+  selectedChapter.value = ''
+  selectedPart.value = ''
+  publishForm.value.chapter_custom = ''
+  publishForm.value.part_custom = ''
+}
+
+const onChapterChange = () => {
+  selectedPart.value = ''
+  publishForm.value.part_custom = ''
+}
 
 const totalPages = computed(() => Math.ceil(total.value / pageSize.value))
 
@@ -196,6 +308,22 @@ const getExcerpt = (content: string) => {
   return content.substring(0, 100) + (content.length > 100 ? '...' : '')
 }
 
+const loadCategories = async () => {
+  try {
+    const resp = await api.search.categories()
+    if (resp && resp.device_categories) {
+      deviceCategories.value = resp.device_categories
+    }
+  } catch (e) {
+    console.error('加载分类失败:', e)
+    // 默认值：确保始终有 摩托车、汽车、其他 选项
+    deviceCategories.value = [
+      { category: '摩托车', sources: [] },
+      { category: '汽车', sources: [] }
+    ]
+  }
+}
+
 const loadPosts = async () => {
   loading.value = true
   try {
@@ -204,8 +332,11 @@ const loadPosts = async () => {
       page: page.value,
       page_size: pageSize.value
     })
-    if (response.items) {
-      posts.value = response.items
+    if (response && response.items) {
+      posts.value = response.items.map((p: any) => ({
+        ...p,
+        _date: (p.created_at || '').split('T')[0]
+      }))
       total.value = response.total || 0
     }
   } catch (error) {
@@ -254,22 +385,70 @@ const likePost = async () => {
   }
 }
 
+const deletePost = async () => {
+  if (!postDetail.value) return
+  if (!confirm('确定要删除这条经验吗？')) return
+  try {
+    const response = await api.community.delete(postDetail.value.id, { author_id: currentUser?.value?.id })
+    if (response && response.success) {
+      ElMessage('删除成功')
+      closeDetailModal()
+      loadPosts()
+    } else {
+      ElMessage('删除失败：无权限')
+    }
+  } catch (error) {
+    console.error('删除失败:', error)
+    ElMessage('删除失败，请稍后重试')
+  }
+}
+
 const publishPost = async () => {
   if (!publishForm.value.title || !publishForm.value.content) {
-    alert('请填写标题和内容')
+    ElMessage('请填写标题和内容')
     return
   }
   
+  // 确定 device_category
+  const deviceCategory = selectedCategory.value === '__other__'
+    ? ('其他:' + (publishForm.value.device_custom || ''))
+    : selectedCategory.value
+  
+  if (!deviceCategory) {
+    ElMessage('请选择设备大类')
+    return
+  }
+  
+  // 确定 device_type（章节）和 fault_type（部位）
+  const deviceType = selectedChapter.value === '__other__'
+    ? publishForm.value.chapter_custom
+    : selectedChapter.value || ''
+  
+  const faultType = selectedPart.value === '__other__'
+    ? publishForm.value.part_custom
+    : selectedPart.value || ''
+  
   publishing.value = true
   try {
-    const response = await api.community.create(publishForm.value)
-    if (response.post_id) {
-      alert('发布成功，等待审核通过后展示')
+    const response = await api.community.create({
+      title: publishForm.value.title,
+      device_category: deviceCategory,
+      device_type: deviceType,
+      fault_type: faultType,
+      content: publishForm.value.content,
+      author_name: publishForm.value.author_name || '匿名用户'
+    })
+    if (response && response.post_id) {
+      ElMessage('发布成功，等待审核通过后展示')
       showPublishModal.value = false
+      selectedCategory.value = ''
+      selectedChapter.value = ''
+      selectedPart.value = ''
       publishForm.value = {
         title: '',
-        device_type: '',
-        fault_type: '',
+        device_custom: '',
+        chapter_custom: '',
+        part_custom: '',
         author_name: '',
         content: ''
       }
@@ -277,13 +456,14 @@ const publishPost = async () => {
     }
   } catch (error) {
     console.error('发布失败:', error)
-    alert('发布失败，请稍后重试')
+    ElMessage('发布失败，请稍后重试')
   } finally {
     publishing.value = false
   }
 }
 
 onMounted(() => {
+  loadCategories()
   loadPosts()
   const postId = route.params.postId
   if (postId) {
@@ -436,6 +616,13 @@ onMounted(() => {
   line-height: 1.6;
 }
 
+.post-chapter {
+  margin: 0 0 4px;
+  font-size: 12px;
+  color: #059669;
+  font-weight: 500;
+}
+
 .post-date {
   font-size: 13px;
   color: #94a3b8;
@@ -536,6 +723,14 @@ onMounted(() => {
   border-bottom: 1px solid #e2e8f0;
   font-size: 13px;
   color: #64748b;
+}
+
+.detail-matched {
+  padding: 10px 24px;
+  background: #f0fdf4;
+  border-bottom: 1px solid #86efac;
+  font-size: 13px;
+  color: #166534;
 }
 
 .detail-body {
@@ -685,13 +880,43 @@ onMounted(() => {
 }
 
 .form-group input,
-.form-group textarea {
+.form-group textarea,
+.form-group select {
   width: 100%;
   padding: 8px 12px;
   border: 1px solid #cbd5e1;
   border-radius: 6px;
   font-size: 14px;
   box-sizing: border-box;
+}
+
+.form-group select {
+  background: white;
+  cursor: pointer;
+}
+
+.form-group select:disabled {
+  background: #f1f5f9;
+  color: #94a3b8;
+  cursor: not-allowed;
+}
+
+.form-group .custom-input {
+  margin-top: 8px;
+}
+
+.match-preview {
+  padding: 10px 14px;
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: 6px;
+  font-size: 13px;
+  color: #166534;
+  margin-bottom: 16px;
+}
+
+.match-preview strong {
+  color: #15803d;
 }
 
 .form-group textarea {

@@ -1,0 +1,82 @@
+# ai-core 依赖清单
+
+## 安装命令
+
+```bash
+conda activate mm-ai
+pip install -r requirements.txt
+```
+
+## requirements.txt
+
+```text
+# ===== 核心框架 =====
+sentence-transformers>=3.0.0       # BGE 文本向量化 (自动下载模型)
+onnxruntime>=1.18.0                # YOLOv8n ONNX 推理
+opencv-python-headless>=4.9.0      # 图像处理 / 视频抽帧
+requests>=2.31.0                   # HTTP 调用 (Qwen API / DeepSeek API)
+numpy>=1.24.0                      # 数值计算
+
+# ===== PostgreSQL 连接 =====
+psycopg2-binary>=2.9.9             # Python 连 PostgreSQL
+pgvector>=0.3.0                    # pgvector 客户端 (SQLAlchemy 扩展)
+
+# ===== LLM 调用 =====
+openai>=1.12.0                     # 兼容 OpenAI 格式的 API (DeepSeek / Qwen)
+
+# ===== 语音 =====
+# Sherpa-ONNX: 单独安装 (C++ 包, 不走 pip)
+# 见: https://github.com/k2-fsa/sherpa-onnx
+
+# ===== 工具 =====
+pyyaml>=6.0                        # 配置文件读取
+pydantic>=2.5.0                    # 数据校验
+loguru>=0.7.2                      # 日志
+python-dotenv>=1.0.0               # .env 文件读取
+```
+
+## 各组件模型下载
+
+### BGE-base-zh-v1.5 (文本向量化)
+
+```bash
+# 首次调用时自动下载，或手动:
+pip install huggingface-hub
+huggingface-cli download BAAI/bge-base-zh-v1.5 --local-dir ./models/bge-base-zh-v1.5
+# 大小: ~400MB
+```
+
+### YOLOv8n ONNX (零件检测)
+
+```bash
+# 方式一: 从 ultralytics 导出
+pip install ultralytics
+python -c "from ultralytics import YOLO; YOLO('yolov8n.pt').export(format='onnx')"
+mv yolov8n.onnx models/yolov8n.onnx
+
+# 方式二: 直接下载 (6MB)
+# https://github.com/ultralytics/assets/releases/download/v8.2.0/yolov8n.onnx
+# 放入 models/yolov8n.onnx
+```
+
+### Sherpa-ONNX (语音转文字)
+
+```bash
+# Windows: 下载预编译包
+# https://github.com/k2-fsa/sherpa-onnx/releases
+# 选择 sherpa-onnx-vx.x.x-win-x64.zip
+# 解压后放到 tools/sherpa-onnx/
+```
+
+## 完整环境大小预估
+
+| 组件 | 大小 |
+|------|------|
+| conda 基础环境 (Python 3.12) | ~300MB |
+| sentence-transformers + torch | ~1.2GB |
+| onnxruntime | ~100MB |
+| opencv-python-headless | ~50MB |
+| sherpa-onnx | ~50MB |
+| BGE 模型文件 | ~400MB |
+| YOLOv8n ONNX | ~6MB |
+| **合计** | **~2.1GB** |

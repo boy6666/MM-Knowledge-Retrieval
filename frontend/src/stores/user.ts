@@ -27,7 +27,7 @@ export const useUserStore = defineStore('user', () => {
   const register = async (username: string, password: string, email?: string) => {
     try {
       const response = await api.auth.register(username, password, email)
-      if (response.id) {
+      if (response.user_id) {
         return true
       }
       return false
@@ -40,10 +40,17 @@ export const useUserStore = defineStore('user', () => {
   const fetchUserInfo = async () => {
     try {
       const response = await api.profile.getInfo()
-      if (response.user) {
+      if (response && response.username) {
+        userInfo.value = response
+      } else if (response && response.user) {
         userInfo.value = response.user
       }
-    } catch (error) {
+    } catch (error: any) {
+      if (error.response?.status === 403 || error.response?.status === 401) {
+        token.value = ''
+        userInfo.value = null
+        localStorage.removeItem('token')
+      }
       console.error('获取用户信息失败:', error)
     }
   }

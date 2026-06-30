@@ -7,8 +7,12 @@ data/
 models/
 node_modules/
 dist/
-backend/venv/
 *.log
+backend/pyenv/
+backend/venv/
+MM/
+backend-java/target/
+ai-core/models/
 .DS_Store
 .vscode/
 .idea/

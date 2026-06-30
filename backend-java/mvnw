@@ -1,0 +1,3 @@
+@echo off
+set MAVEN_OPTS=-Xmx512m
+mvnw.cmd %*

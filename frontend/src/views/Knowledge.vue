@@ -133,6 +133,7 @@
 </template>
 
 <script setup lang="ts">
+import { ElMessage } from "element-plus"
 import { ref, onMounted, watch } from 'vue'
 import { useRouter } from 'vue-router'
 import Layout from '../components/Layout.vue'
@@ -183,7 +184,7 @@ const handleFileSelect = (event: Event) => {
 
 const handleUpload = async () => {
   if (!selectedFile.value) {
-    alert('请选择文件')
+    ElMessage('请选择文件')
     return
   }
   
@@ -197,7 +198,7 @@ const handleUpload = async () => {
   
   try {
     await api.knowledge.upload(formData)
-    alert('上传成功')
+    ElMessage('上传成功')
     uploadTitle.value = ''
     uploadDeviceType.value = ''
     selectedFile.value = null
@@ -209,13 +210,13 @@ const handleUpload = async () => {
     }
   } catch (error) {
     console.error('上传失败:', error)
-    alert('上传失败')
+    ElMessage('上传失败')
   }
 }
 
 const handleAdd = async () => {
   if (!addTitle.value || !addContent.value) {
-    alert('请填写标题和内容')
+    ElMessage('请填写标题和内容')
     return
   }
   
@@ -226,7 +227,7 @@ const handleAdd = async () => {
       category: addCategory.value,
       device_type: addDeviceType.value || undefined
     })
-    alert('添加成功，待审核')
+    ElMessage('添加成功，待审核')
     addTitle.value = ''
     addContent.value = ''
     addDeviceType.value = ''
@@ -235,7 +236,7 @@ const handleAdd = async () => {
     }
   } catch (error) {
     console.error('添加失败:', error)
-    alert('添加失败')
+    ElMessage('添加失败')
   }
 }
 
@@ -248,7 +249,7 @@ const approveItem = async (id: number) => {
     }
   } catch (error) {
     console.error('审核失败:', error)
-    alert('审核失败')
+    ElMessage('审核失败')
   }
 }
 

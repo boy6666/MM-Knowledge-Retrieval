@@ -139,6 +139,7 @@
 </template>
 
 <script setup lang="ts">
+import { ElMessage } from "element-plus"
 import { ref, computed, onMounted } from 'vue'
 import { useRouter, useRoute } from 'vue-router'
 import Layout from '../components/Layout.vue'
@@ -244,7 +245,7 @@ const addToGuidance = async () => {
     }
   } catch (error: any) {
     console.error('添加失败:', error)
-    alert(error.response?.data?.detail || '添加失败，请检查后端服务是否已配置大模型')
+    ElMessage(error.response?.data?.detail || '添加失败，请检查后端服务是否已配置大模型')
   } finally {
     if (btn) btn.disabled = false
   }
@@ -264,7 +265,7 @@ const loadData = async () => {
     }
   } catch (error) {
     console.error('加载数据失败:', error)
-    alert('加载数据失败')
+    ElMessage('加载数据失败')
   }
 }
 

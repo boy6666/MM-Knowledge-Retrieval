@@ -33,6 +33,7 @@
 </template>
 
 <script setup lang="ts">
+import { ElMessage } from "element-plus"
 import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useUserStore } from '../stores/user'
@@ -66,7 +67,7 @@ const handleRegister = async () => {
   try {
     const success = await userStore.register(username.value, password.value, email.value || undefined)
     if (success) {
-      alert('注册成功，请登录')
+      ElMessage('注册成功，请登录')
       router.push('/login')
     } else {
       error.value = '注册失败，请重试'

@@ -19,11 +19,20 @@ instance.interceptors.request.use(
 )
 
 instance.interceptors.response.use(
-  (response) => response.data,
+  (response) => {
+    const body = response.data
+    // 后端统一返回 {code, message, data} 格式，自动解包 data
+    if (body && typeof body === 'object' && 'data' in body) {
+      return body.data
+    }
+    return body
+  },
   (error) => {
-    if (error.response?.status === 401) {
+    if (error.response?.status === 401 || error.response?.status === 403) {
       localStorage.removeItem('token')
-      window.location.href = '/login'
+      if (window.location.pathname !== '/login' && window.location.pathname !== '/register') {
+        window.location.href = '/login'
+      }
     }
     console.error('API Error:', error)
     return Promise.reject(error)
@@ -37,7 +46,7 @@ export const api = {
     register: (username: string, password: string, email?: string): Promise<ApiResponse> =>
       instance.post('/auth/register', { username, password, email }),
     login: (username: string, password: string): Promise<ApiResponse> =>
-      instance.post('/auth/token', new URLSearchParams({ username, password, grant_type: 'password' }))
+      instance.post('/auth/token', { username, password }),
   },
   search: {
     text: (query: string): Promise<ApiResponse<{ query: string; results: any[]; suggestion?: any }>> =>
@@ -51,12 +60,16 @@ export const api = {
       instance.post('/search/hybrid', formData),
     suggest: (query: string): Promise<ApiResponse<{ suggestion: any }>> =>
       instance.get(`/search/suggest?query=${encodeURIComponent(query)}`),
+    categories: (): Promise<ApiResponse<{ device_categories: { category: string; sources: { name: string; data_file: string; chapters: { title: string; parts: string[] }[] }[] }[]; version: string }>> =>
+      instance.get('/search/categories'),
   },
   guidance: {
     generate: (data: { device_type: string; fault_type: string; user_id?: number }): Promise<ApiResponse<{ guidance_id: number | null; title: string; content: string; device_type: string; fault_type: string; summary: string }>> =>
-      instance.post('/guidance/generate', null, { params: data }),
+      instance.post('/guidance/generate', data),
+    generateFromChat: (data: { conversation_id: string; message_id: number; title?: string; user_id?: number }): Promise<ApiResponse<{ guidance_id: number; guidance: any }>> =>
+      instance.post('/guidance/generate-from-chat', data),
     save: (data: { title: string; device_type: string; fault_type: string; content: string; source_type?: string; user_id?: number }): Promise<ApiResponse<{ guidance_id: number; guidance: any }>> =>
-      instance.post('/guidance/save', null, { params: data }),
+      instance.post('/guidance/save', data),
     get: (guidanceId: number): Promise<ApiResponse<{ guidance: any }>> =>
       instance.get(`/guidance/${guidanceId}`),
     listMine: (params?: { user_id?: number; page?: number; page_size?: number }): Promise<ApiResponse<{ items: any[]; total: number; page: number; page_size: number }>> =>
@@ -73,8 +86,8 @@ export const api = {
       instance.get('/community/list', { params }),
     get: (postId: number): Promise<ApiResponse<{ post: any }>> =>
       instance.get(`/community/${postId}`),
-    create: (data: { title: string; device_type: string; fault_type: string; content: string; images?: string; author_id?: number; author_name?: string }): Promise<ApiResponse<{ post_id: number; post: any }>> =>
-      instance.post('/community/create', null, { params: data }),
+    create: (data: { title: string; device_category?: string; device_type?: string; fault_type?: string; content: string; images?: string; author_id?: number; author_name?: string }): Promise<ApiResponse<{ post_id: number; post: any }>> =>
+      instance.post('/community/create', data),
     listMine: (params?: { author_id?: number; status?: string; page?: number; page_size?: number }): Promise<ApiResponse<{ items: any[]; total: number; page: number; page_size: number }>> =>
       instance.get('/community/list/mine', { params }),
     like: (postId: number): Promise<ApiResponse<{ success: boolean; likes: number }>> =>
@@ -145,7 +158,5 @@ export const api = {
       formData.append('video', video)
       return instance.post('/chat/video-analyze', formData)
     },
-    imageGenerate: (prompt: string): Promise<ApiResponse<{ prompt: string; image_url: string }>> =>
-      instance.post('/chat/image-generate', new URLSearchParams({ prompt }))
   }
 }

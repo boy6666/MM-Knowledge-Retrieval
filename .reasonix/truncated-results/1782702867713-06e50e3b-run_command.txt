@@ -1,0 +1,1116 @@
+$ conda create -n mm-ai python=3.12 -y 2>&1
+[killed after timeout]
+3 channel Terms of Service accepted
+Retrieving notices: - \ | / - \ | / - done
+Channels:
+ - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+ - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free
+ - defaults
+Platform: win-64
+Collecting package metadata (repodata.json): | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - \ | / - done
+Solving environment: | / done
+
+
+==> WARNING: A newer version of conda exists. <==
+    current version: 25.5.1
+    latest version: 26.5.3
+
+Please update conda by running
+
+    $ conda update -n base -c defaults conda
+
+
+
+## Package Plan ##
+
+  environment location: D:\Anaconda2025.06\envs\mm-ai
+
+  added / updated specs:
+    - python=3.12
+
+
+The following packages will be downloaded:
+
+    package                    |            build
+    ---------------------------|-----------------
+    ca-certificates-2026.5.14  |       haa95532_0         107 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    libexpat-2.8.1             |       hd7fb8db_1         123 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    libffi-3.4.8               |       h42d73b9_3         118 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    libzlib-1.3.2              |       h1c6eee0_0          63 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    openssl-3.5.7              |       hbb43b14_0         8.9 MB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    packaging-26.0             |  py312haa95532_0         193 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    pip-26.1.2                 |     pyhc872135_0         1.1 MB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    python-3.12.13             |       h63b1a2d_1        15.2 MB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    setuptools-82.0.1          |  py312haa95532_0         1.6 MB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    sqlite-3.53.2              |       hee5a0db_0         944 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    tzdata-2026b               |       he532380_0         118 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    vc-14.3                    |      h2df5915_12          16 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    vc14_runtime-14.44.35208   |      h4927774_12         664 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    vs2015_runtime-14.44.35208 |      ha6b5a95_12          16 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    wheel-0.47.0               |  py312haa95532_0          97 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    zlib-1.3.2                 |       h1c6eee0_0         828 KB  https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+    ------------------------------------------------------------
+                                           Total:        30.0 MB
+
+The following NEW packages will be INSTALLED:
+
+  bzip2              anaconda/pkgs/main/win-64::bzip2-1.0.8-h2bbff1b_6 
+  ca-certificates    anaconda/pkgs/main/win-64::ca-certificates-2026.5.14-haa95532_0 
+  libexpat           anaconda/pkgs/main/win-64::libexpat-2.8.1-hd7fb8db_1 
+  libffi             anaconda/pkgs/main/win-64::libffi-3.4.8-h42d73b9_3 
+  libzlib            anaconda/pkgs/main/win-64::libzlib-1.3.2-h1c6eee0_0 
+  openssl            anaconda/pkgs/main/win-64::openssl-3.5.7-hbb43b14_0 
+  packaging          anaconda/pkgs/main/win-64::packaging-26.0-py312haa95532_0 
+  pip                anaconda/pkgs/main/noarch::pip-26.1.2-pyhc872135_0 
+  python             anaconda/pkgs/main/win-64::python-3.12.13-h63b1a2d_1 
+  setuptools         anaconda/pkgs/main/win-64::setuptools-82.0.1-py312haa95532_0 
+  sqlite             anaconda/pkgs/main/win-64::sqlite-3.53.2-hee5a0db_0 
+  tk                 anaconda/pkgs/main/win-64::tk-8.6.15-hf199647_0 
+  tzdata             anaconda/pkgs/main/noarch::tzdata-2026b-he532380_0 
+  ucrt               anaconda/pkgs/main/win-64::ucrt-10.0.22621.0-haa95532_0 
+  vc                 anaconda/pkgs/main/win-64::vc-14.3-h2df5915_12 
+  vc14_runtime       anaconda/pkgs/main/win-64::vc14_runtime-14.44.35208-h4927774_12 
+  vs2015_runtime     anaconda/pkgs/main/win-64::vs2015_runtime-14.44.35208-ha6b5a95_12 
+  wheel              anaconda/pkgs/main/win-64::wheel-0.47.0-py312haa95532_0 
+  xz                 anaconda/pkgs/main/win-64::xz-5.8.2-h53af0af_0 
+  zlib               anaconda/pkgs/main/win-64::zlib-1.3.2-h1c6eee0_0 
+
+
+
+Downloading and Extracting Packages: ...working...python-3.12.13       | 15.2 MB   |            |   0% 
+openssl-3.5.7        | 8.9 MB    |            |   0% [A
+
+setuptools-82.0.1    | 1.6 MB    |            |   0% [A[A
+
+
+pip-26.1.2           | 1.1 MB    |            |   0% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    |            |   0% [A[A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    |            |   0% [A[A[A[A[A
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    |            |   0% [A[A[A[A[A[A
+
+
+
+
+
+
+packaging-26.0       | 193 KB    |            |   0% [A[A[A[A[A[A[A
+
+
+
+
+
+
+
+libexpat-2.8.1       | 123 KB    |            |   0% [A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+libffi-3.4.8         | 118 KB    |            |   0% [A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+tzdata-2026b         | 118 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+ca-certificates-2026 | 107 KB    |            |   0% [A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+wheel-0.47.0         | 97 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+libzlib-1.3.2        | 63 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+vs2015_runtime-14.44 | 16 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+vc-14.3              | 16 KB     |            |   0% [A[A[A[A[A[A[A[A[A[A[A[A[A[A[Apython-3.12.13       | 15.2 MB   |            |   0% 
+
+
+
+sqlite-3.53.2        | 944 KB    | 1          |   2% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    |            |   0% [A
+
+setuptools-82.0.1    | 1.6 MB    | 1          |   1% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | 5          |   5% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    |            |   1% [Apython-3.12.13       | 15.2 MB   |            |   0% 
+
+setuptools-82.0.1    | 1.6 MB    | 3          |   3% [A[A
+openssl-3.5.7        | 8.9 MB    | 1          |   1% [Apython-3.12.13       | 15.2 MB   |            |   1% 
+
+
+
+sqlite-3.53.2        | 944 KB    | #1         |  12% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | 1          |   2% [A
+openssl-3.5.7        | 8.9 MB    | 1          |   2% [A
+openssl-3.5.7        | 8.9 MB    | 2          |   3% [A
+openssl-3.5.7        | 8.9 MB    | 3          |   3% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #5         |  15% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | 3          |   4% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #6         |  17% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | 6          |   6% [A
+
+
+pip-26.1.2           | 1.1 MB    | 1          |   1% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #8         |  19% [A[A[A[Apython-3.12.13       | 15.2 MB   |            |   1% 
+openssl-3.5.7        | 8.9 MB    | 7          |   7% [A
+
+
+pip-26.1.2           | 1.1 MB    | 4          |   4% [A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | 5          |   5% [A[A[A
+openssl-3.5.7        | 8.9 MB    | 7          |   8% [A
+
+
+pip-26.1.2           | 1.1 MB    | 6          |   7% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | 7          |   7% [A[A
+openssl-3.5.7        | 8.9 MB    | 8          |   8% [A
+
+
+pip-26.1.2           | 1.1 MB    | 8          |   8% [A[A[A
+openssl-3.5.7        | 8.9 MB    | 8          |   9% [A
+
+
+pip-26.1.2           | 1.1 MB    | 9          |  10% [A[A[A
+openssl-3.5.7        | 8.9 MB    | 9          |   9% [A
+
+
+pip-26.1.2           | 1.1 MB    | #2         |  12% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | 8          |   8% [A[A
+openssl-3.5.7        | 8.9 MB    | 9          |  10% [A
+
+setuptools-82.0.1    | 1.6 MB    | 9          |   9% [A[A
+openssl-3.5.7        | 8.9 MB    | #          |  11% [Apython-3.12.13       | 15.2 MB   | 1          |   1% 
+
+
+
+sqlite-3.53.2        | 944 KB    | ##         |  20% [A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | #3         |  14% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #          |  10% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | #6         |  16% [A[A[A
+openssl-3.5.7        | 8.9 MB    | #1         |  11% [A
+
+setuptools-82.0.1    | 1.6 MB    | #1         |  11% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | #7         |  18% [A[A[A
+openssl-3.5.7        | 8.9 MB    | #2         |  12% [A
+
+setuptools-82.0.1    | 1.6 MB    | #2         |  12% [A[A
+openssl-3.5.7        | 8.9 MB    | #2         |  13% [A
+
+
+pip-26.1.2           | 1.1 MB    | #9         |  19% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #3         |  13% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ##         |  21% [A[A[A
+openssl-3.5.7        | 8.9 MB    | #3         |  13% [A
+
+setuptools-82.0.1    | 1.6 MB    | #4         |  14% [A[A
+openssl-3.5.7        | 8.9 MB    | #3         |  14% [A
+openssl-3.5.7        | 8.9 MB    | #4         |  15% [A
+
+setuptools-82.0.1    | 1.6 MB    | #5         |  15% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ##1        |  22% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ##2        |  22% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | #5         |  15% [A
+openssl-3.5.7        | 8.9 MB    | #5         |  16% [A
+
+setuptools-82.0.1    | 1.6 MB    | #6         |  16% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ##4        |  25% [A[A[A
+openssl-3.5.7        | 8.9 MB    | #5         |  16% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | ##8        |  29% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | #6         |  16% [A
+
+
+pip-26.1.2           | 1.1 MB    | ##5        |  26% [A[A[A
+openssl-3.5.7        | 8.9 MB    | #6         |  17% [A
+
+setuptools-82.0.1    | 1.6 MB    | #7         |  17% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ###2       |  32% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | #7         |  17% [A
+
+
+pip-26.1.2           | 1.1 MB    | ##7        |  27% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ###3       |  34% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #8         |  18% [A[A
+openssl-3.5.7        | 8.9 MB    | #7         |  18% [A
+openssl-3.5.7        | 8.9 MB    | #8         |  18% [A
+
+
+pip-26.1.2           | 1.1 MB    | ##8        |  29% [A[A[A
+openssl-3.5.7        | 8.9 MB    | #8         |  18% [A
+
+setuptools-82.0.1    | 1.6 MB    | #9         |  19% [A[A
+openssl-3.5.7        | 8.9 MB    | #8         |  19% [A
+
+
+pip-26.1.2           | 1.1 MB    | ###        |  30% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ###5       |  36% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ##         |  20% [A[A
+openssl-3.5.7        | 8.9 MB    | #9         |  19% [A
+
+
+pip-26.1.2           | 1.1 MB    | ###1       |  31% [A[A[A
+openssl-3.5.7        | 8.9 MB    | #9         |  20% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | ###7       |  37% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ##         |  20% [A
+
+setuptools-82.0.1    | 1.6 MB    | ##1        |  21% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ###2       |  33% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ##         |  21% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | ###8       |  39% [A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | ###4       |  34% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ##         |  21% [A
+
+setuptools-82.0.1    | 1.6 MB    | ##2        |  22% [A[A
+openssl-3.5.7        | 8.9 MB    | ##1        |  21% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | ####       |  41% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ##1        |  22% [A
+
+
+pip-26.1.2           | 1.1 MB    | ###5       |  36% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ##3        |  23% [A[A
+openssl-3.5.7        | 8.9 MB    | ##2        |  22% [A
+
+
+pip-26.1.2           | 1.1 MB    | ###6       |  37% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ####2      |  42% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ##4        |  24% [A[A
+openssl-3.5.7        | 8.9 MB    | ##2        |  23% [A
+openssl-3.5.7        | 8.9 MB    | ##2        |  23% [A
+
+
+pip-26.1.2           | 1.1 MB    | ###8       |  38% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ####4      |  44% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ##5        |  25% [A[A
+openssl-3.5.7        | 8.9 MB    | ##3        |  23% [A
+
+
+pip-26.1.2           | 1.1 MB    | ###9       |  40% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ####5      |  46% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ##3        |  24% [A
+
+setuptools-82.0.1    | 1.6 MB    | ##6        |  26% [A[A
+openssl-3.5.7        | 8.9 MB    | ##4        |  24% [A
+
+
+pip-26.1.2           | 1.1 MB    | ####1      |  41% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ####7      |  47% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ##4        |  24% [A
+
+setuptools-82.0.1    | 1.6 MB    | ##7        |  27% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ####2      |  42% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ##4        |  25% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | ####9      |  49% [A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | ####3      |  44% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ##5        |  25% [A
+
+setuptools-82.0.1    | 1.6 MB    | ##8        |  28% [A[A
+openssl-3.5.7        | 8.9 MB    | ##5        |  26% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #####      |  51% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ##6        |  26% [A
+
+setuptools-82.0.1    | 1.6 MB    | ##9        |  29% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #####2     |  53% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ##6        |  27% [A
+
+
+pip-26.1.2           | 1.1 MB    | ####5      |  45% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ###        |  30% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #####4     |  54% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ##7        |  27% [A
+
+setuptools-82.0.1    | 1.6 MB    | ###1       |  31% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ####7      |  48% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ##7        |  28% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #####5     |  56% [A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | ####9      |  49% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ###2       |  32% [A[A
+openssl-3.5.7        | 8.9 MB    | ##8        |  28% [A
+
+
+pip-26.1.2           | 1.1 MB    | #####      |  51% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #####7     |  58% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ##8        |  28% [A
+
+setuptools-82.0.1    | 1.6 MB    | ###3       |  33% [A[A
+openssl-3.5.7        | 8.9 MB    | ##8        |  29% [A
+
+
+pip-26.1.2           | 1.1 MB    | #####1     |  52% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ###4       |  34% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #####9     |  59% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ##9        |  29% [A
+
+
+pip-26.1.2           | 1.1 MB    | #####3     |  53% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ###5       |  35% [A[A
+openssl-3.5.7        | 8.9 MB    | ##9        |  30% [A
+openssl-3.5.7        | 8.9 MB    | ##9        |  30% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | ######     |  61% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ###6       |  36% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | #####4     |  55% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ###        |  30% [A
+
+setuptools-82.0.1    | 1.6 MB    | ###7       |  37% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ######2    |  63% [A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | #####6     |  56% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ###        |  31% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | ######4    |  64% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ###8       |  38% [A[A
+openssl-3.5.7        | 8.9 MB    | ###        |  31% [A
+
+
+pip-26.1.2           | 1.1 MB    | #####7     |  57% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ###9       |  39% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ######6    |  66% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###1       |  31% [A
+
+
+pip-26.1.2           | 1.1 MB    | #####8     |  59% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ###1       |  32% [A
+
+setuptools-82.0.1    | 1.6 MB    | ####       |  40% [A[A
+
+setuptools-82.0.1    | 1.6 MB    | ####1      |  41% [A[A
+openssl-3.5.7        | 8.9 MB    | ###2       |  32% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | ######7    |  68% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###2       |  33% [A
+
+setuptools-82.0.1    | 1.6 MB    | ####2      |  42% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ######1    |  62% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #######1   |  71% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###3       |  33% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #######2   |  73% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ####3      |  43% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ######2    |  63% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ###3       |  34% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #######4   |  75% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ####4      |  44% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ######4    |  64% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ###3       |  34% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #######6   |  76% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###4       |  34% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #######7   |  78% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ####5      |  45% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ######5    |  66% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #######9   |  80% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###4       |  35% [A
+
+setuptools-82.0.1    | 1.6 MB    | ####6      |  46% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ########1  |  81% [A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | ######7    |  67% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ########3  |  83% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###5       |  35% [A
+
+setuptools-82.0.1    | 1.6 MB    | ####7      |  47% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ######8    |  68% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ########4  |  85% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###5       |  35% [A
+
+
+pip-26.1.2           | 1.1 MB    | ######9    |  70% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ####8      |  48% [A[A
+openssl-3.5.7        | 8.9 MB    | ###5       |  36% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | ########8  |  88% [A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ####9      |  49% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | #######1   |  71% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ###6       |  36% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #########1 |  91% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###6       |  36% [A
+
+setuptools-82.0.1    | 1.6 MB    | #####      |  50% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | #######2   |  72% [A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #########3 |  93% [A[A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #########4 |  95% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###6       |  37% [A
+
+setuptools-82.0.1    | 1.6 MB    | #####1     |  51% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | #########6 |  97% [A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | #######3   |  74% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ###6       |  37% [A
+
+
+
+sqlite-3.53.2        | 944 KB    | #########8 |  98% [A[A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ########## | 100% [A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###7       |  37% [A
+
+setuptools-82.0.1    | 1.6 MB    | #####2     |  52% [A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ########## | 100% [A[A[A[A
+
+
+
+sqlite-3.53.2        | 944 KB    | ########## | 100% [A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | #######5   |  75% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #####3     |  53% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | 1          |   2% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###7       |  38% [A
+
+
+pip-26.1.2           | 1.1 MB    | #######6   |  77% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ###7       |  38% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | 3          |   4% [A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #####4     |  54% [A[A
+openssl-3.5.7        | 8.9 MB    | ###7       |  38% [A
+
+
+pip-26.1.2           | 1.1 MB    | #######7   |  78% [A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | 5          |   6% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###8       |  38% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | 7          |   8% [A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #####5     |  55% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | #######9   |  79% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ###8       |  38% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | 9          |  10% [A[A[A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #1         |  12% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###8       |  39% [A
+
+
+pip-26.1.2           | 1.1 MB    | ########   |  81% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #####6     |  56% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #3         |  14% [A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #####7     |  57% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #5         |  15% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###8       |  39% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #9         |  19% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###9       |  39% [A
+
+setuptools-82.0.1    | 1.6 MB    | #####8     |  58% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ##1        |  21% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ###9       |  40% [A
+openssl-3.5.7        | 8.9 MB    | ####       |  40% [A
+
+
+pip-26.1.2           | 1.1 MB    | ########2  |  82% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #####9     |  59% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ##5        |  25% [A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ######     |  60% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ########3  |  83% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ####       |  40% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ##9        |  29% [A[A[A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ###        |  31% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####       |  41% [A
+
+
+pip-26.1.2           | 1.1 MB    | ########4  |  85% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ####       |  41% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ###2       |  33% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####1      |  41% [A
+
+setuptools-82.0.1    | 1.6 MB    | ######1    |  61% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ########6  |  86% [A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ###6       |  37% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####1      |  41% [A
+
+
+pip-26.1.2           | 1.1 MB    | ########7  |  88% [A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ####       |  41% [A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ######2    |  62% [A[A
+
+
+pip-26.1.2           | 1.1 MB    | ########8  |  89% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ####1      |  42% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ####4      |  44% [A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ######3    |  63% [A[A
+openssl-3.5.7        | 8.9 MB    | ####1      |  42% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ####8      |  48% [A[A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | #########  |  90% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ####2      |  42% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #####      |  50% [A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ######4    |  64% [A[A
+openssl-3.5.7        | 8.9 MB    | ####2      |  43% [A
+
+
+pip-26.1.2           | 1.1 MB    | #########1 |  92% [A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #####2     |  52% [A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ######5    |  65% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #####4     |  54% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####2      |  43% [A
+
+
+pip-26.1.2           | 1.1 MB    | #########2 |  93% [A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | #########4 |  94% [A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #####6     |  56% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####3      |  43% [A
+
+setuptools-82.0.1    | 1.6 MB    | ######6    |  66% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #####9     |  60% [A[A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | #########5 |  96% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ####3      |  44% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ######1    |  62% [A[A[A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | #########7 |  97% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ######7    |  67% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ######3    |  64% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####4      |  44% [A
+
+
+pip-26.1.2           | 1.1 MB    | #########8 |  98% [A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | ########## | 100% [A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ######8    |  68% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ######5    |  66% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####4      |  45% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ######9    |  70% [A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | ######9    |  69% [A[A
+openssl-3.5.7        | 8.9 MB    | ####4      |  45% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #######3   |  73% [A[A[A[A[A
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | 2          |   2% [A[A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #######    |  70% [A[A
+openssl-3.5.7        | 8.9 MB    | ####5      |  45% [A
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | 4          |   5% [A[A[A[A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #######7   |  77% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####5      |  46% [A
+
+setuptools-82.0.1    | 1.6 MB    | #######1   |  71% [A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #######9   |  79% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####5      |  46% [A
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | 7          |   7% [A[A[A[A[A[Apython-3.12.13       | 15.2 MB   | 1          |   1% 
+
+
+pip-26.1.2           | 1.1 MB    | ########## | 100% [A[A[A
+
+
+pip-26.1.2           | 1.1 MB    | ########## | 100% [A[A[A
+openssl-3.5.7        | 8.9 MB    | ####6      |  46% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ########3  |  83% [A[A[A[A[Apython-3.12.13       | 15.2 MB   | 1          |   2% python-3.12.13       | 15.2 MB   | 1          |   2% 
+
+setuptools-82.0.1    | 1.6 MB    | #######2   |  72% [A[A
+openssl-3.5.7        | 8.9 MB    | ####6      |  46% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ########7  |  87% [A[A[A[A[Apython-3.12.13       | 15.2 MB   | 2          |   2% 
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | 9          |  10% [A[A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####6      |  47% [A
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | #2         |  12% [A[A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####6      |  47% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ########8  |  89% [A[A[A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #########  |  91% [A[A[A[A[A
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | #4         |  14% [A[A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####7      |  47% [Apython-3.12.13       | 15.2 MB   | 2          |   2% python-3.12.13       | 15.2 MB   | 2          |   3% 
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | #6         |  17% [A[A[A[A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | #########2 |  93% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####7      |  47% [Apython-3.12.13       | 15.2 MB   | 3          |   3% 
+openssl-3.5.7        | 8.9 MB    | ####7      |  48% [A
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | #9         |  19% [A[A[A[A[A[A
+
+setuptools-82.0.1    | 1.6 MB    | #######3   |  73% [A[A
+openssl-3.5.7        | 8.9 MB    | ####7      |  48% [Apython-3.12.13       | 15.2 MB   | 3          |   3% 
+
+
+
+
+zlib-1.3.2           | 828 KB    | #########6 |  97% [A[A[A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ########## | 100% [A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####8      |  48% [A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ########## | 100% [A[A[A[A[A
+
+
+
+
+zlib-1.3.2           | 828 KB    | ########## | 100% [A[A[A[A[Apython-3.12.13       | 15.2 MB   | 3          |   4% 
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | ##1        |  22% [A[A[A[A[A[A
+openssl-3.5.7        | 8.9 MB    | ####8      |  48% [Apython-3.12.13       | 15.2 MB   | 3          |   4% 
+openssl-3.5.7        | 8.9 MB    | ####8      |  49% [A
+
+
+
+
+
+vc14_runtime-14.44.3 | 664 KB    | ##4        |  24% [A[A[A[A[A[A
+
+[… truncated 30201 chars …]
