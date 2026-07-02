@@ -6,8 +6,10 @@ import com.repair.service.KnowledgeService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Map;
+import java.util.HashMap;
 
 @RestController
 @RequestMapping("/api/knowledge")
@@ -28,6 +30,19 @@ public class KnowledgeController {
                         body.get("content"),
                         body.get("category"),
                         body.get("device_type"))));
+    }
+
+    @PostMapping("/upload")
+    public ResponseEntity<ApiResponse> upload(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam String title,
+            @RequestParam(defaultValue = "manual") String category,
+            @RequestParam(required = false) String device_type) {
+        Map<String, Object> data = new HashMap<>();
+        data.put("message", "文件已接收: " + file.getOriginalFilename());
+        data.put("filename", file.getOriginalFilename());
+        data.put("size", file.getSize());
+        return ResponseEntity.ok(ApiResponse.ok(data));
     }
 
     @GetMapping("/list")

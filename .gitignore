@@ -13,6 +13,8 @@ backend/venv/
 MM/
 backend-java/target/
 ai-core/models/
+*.pdf
+udo*
 .DS_Store
 .vscode/
 .idea/

@@ -4,7 +4,10 @@ AI Core 配置
 import os
 from dotenv import load_dotenv
 
-load_dotenv()
+# 强制从 ai-core 目录加载 .env，不管 cwd 在哪里
+import os
+_dotenv_path = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), ".env")
+load_dotenv(_dotenv_path)
 
 
 class Settings:

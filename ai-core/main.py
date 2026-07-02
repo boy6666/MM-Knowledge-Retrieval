@@ -91,19 +91,30 @@ async def health():
 
 # ===== 检索 =====
 @app.post("/api/v1/retrieve")
-async def retrieve(query: str, top_k: int = 10, device_type: str = "", include_images: bool = True):
+async def retrieve(data: dict):
+    query = data.get("query", "")
+    top_k = data.get("top_k", data.get("k", 10))
+    device_type = data.get("device_type", "")
+    include_images = data.get("include_images", True)
     if not query:
         return {"query": "", "results": [], "total": 0}
-
     # 1. BGE 向量化
     from vector.embedder import embedder
-    query_vec = embedder.encode(query).tolist()
+    import numpy as np
+    raw_emb = embedder.encode(query)
+    print(f"[DEBUG] encode() return type={type(raw_emb).__name__}, shape={raw_emb.shape}, ndim={raw_emb.ndim}")
+    if raw_emb.ndim == 2:
+        query_vec = raw_emb[0].tolist()
+    else:
+        query_vec = raw_emb.tolist()
+    print(f"[DEBUG] query_vec type={type(query_vec).__name__}, len={len(query_vec)}, is_flat={not isinstance(query_vec[0], (list, np.ndarray))}")
 
     # 2. pgvector 检索
     results = []
     if retriever:
         try:
             vec_results = retriever.search("embeddings", query_vec, top_k)
+            print(f"[DEBUG] pgvector returned {len(vec_results)} results")
             for r in vec_results:
                 results.append({
                     "chunk_id": r["chunk_id"],
@@ -112,7 +123,9 @@ async def retrieve(query: str, top_k: int = 10, device_type: str = "", include_i
                     "metadata": r.get("metadata", {}),
                 })
         except Exception as e:
+            import traceback
             print(f"[Retrieve] pgvector 检索失败: {e}")
+            traceback.print_exc()
 
     # 3. AGE 图谱补充 (如果检索结果不足)
     if len(results) < 3 and age:

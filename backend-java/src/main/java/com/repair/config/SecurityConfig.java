@@ -42,8 +42,10 @@ public class SecurityConfig {
                 "/api/community/list",
                 "/api/guidance/list/public",
                 "/api/knowledge/list",
+                "/api/knowledge/upload",
                 "/api/guidance/{id}",
-                "/api/knowledge/{id}"
+                "/api/knowledge/{id}",
+                "/api/search/**"
             ).permitAll()
             .antMatchers("/api/admin/**").hasRole("ADMIN")
             .anyRequest().authenticated()

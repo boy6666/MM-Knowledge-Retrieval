@@ -49,9 +49,9 @@ public class CommunityService {
                 if (!results.isEmpty()) {
                     Object first = results.get(0);
                     if (first instanceof Map) {
-                        Object title = ((Map<?, ?>) first).get("title");
-                        if (title != null) {
-                            post.setMatchedChapter((String) title);
+                        Object chapterTitle = ((Map<?, ?>) first).get("title");
+                        if (chapterTitle != null) {
+                            post.setMatchedChapter((String) chapterTitle);
                         }
                     }
                 }

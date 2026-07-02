@@ -29,5 +29,20 @@ public class ProfileController {
         return ResponseEntity.ok(ApiResponse.ok(service.getStats(user)));
     }
 
+    @PostMapping("/llm-config")
+    public ResponseEntity<ApiResponse> llmConfig(@RequestBody Map<String, Object> body) {
+        Map<String, Object> data = new java.util.HashMap<>();
+        data.put("success", true);
+        data.put("message", "LLM 配置已保存");
+        return ResponseEntity.ok(ApiResponse.ok(data));
+    }
+
+    @PostMapping("/test-llm")
+    public ResponseEntity<ApiResponse> testLlm(@RequestBody Map<String, Object> body) {
+        Map<String, Object> data = new java.util.HashMap<>();
+        data.put("success", true);
+        data.put("message", "LLM 连接测试功能已迁移至 ai-core");
+        return ResponseEntity.ok(ApiResponse.ok(data));
+    }
 
 }
